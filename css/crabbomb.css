@@ -1,0 +1,23 @@
+a{
+text-decoration:none;
+}
+a:hover{
+text-decoration:underline;
+}
+#next{
+display:none;
+}
+select, button, label{
+font-size:18px;
+}
+*{
+text-align:center;
+margin:auto;
+font-family:arial;
+}
+#p1{
+font-size:30px;
+}
+#hello{
+	font-size:30px;
+}
