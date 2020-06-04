@@ -70,7 +70,7 @@ document.getElementsByTagName("body")[0].style.backgroundColor = "rgb(" + harson
 function popup(e){
 document.getElementById("menu").style.display = "block";
 if(e == 1){
-document.getElementById("menu").innerHTML = "<ul><li><a href='javascript:hide()'>[&times;]</a></li><li><a href='javascript:popup(5)'>Checkbox Pages</a></li><li><a href='javascript:popup(6)'>Random Pages</a></li><li><a href='javascript:popup(7)'>Mad libs</a></li><li><a href='Crash My Browser - Schoolsite.html'>Crash My browser</a></li><li><a href=\"Super Shapes - Schoolsite.html\">Super Shapes 1</a></li><li><a href=\"Super Shapes 2 - Schoolsite.html\">Super Shapes 2</a></li></ul>";}
+document.getElementById("menu").innerHTML = "<ul><li><a href='javascript:hide()'>[&times;]</a></li><li><a href='javascript:popup(5)'>Checkbox Pages</a></li><li><a href='javascript:popup(6)'>Random Pages</a></li><li><a href='javascript:popup(7)'>Mad libs</a></li><li><a href='Crash My Browser - Schoolsite.html'>Crash My browser</a></li><li><a href=\"javascript:popup(22)\">Super Shapes</a></li></ul>";}
 else if(e == 2){
 document.getElementById("menu").innerHTML = "<ul><li><a href='javascript:hide()'>[&times;]</a></li><li><a target='_blank' href='Crab%20rave%20-%20Schoolsite.html'>Crab Rave</a></li><li><a href='javascript:crabbomb()'>Crab Bomb</a></li></ul>";}
 else if(e == 3){
@@ -81,6 +81,9 @@ else if(e == 5){
 document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a>&nbsp;&nbsp;<a href="javascript:popup(1)">[&lt;]</a></li><li><a target="_blank" href="Checkbox Drawing - Schoolsite.html">Checkbox Drawing</a></li><li><a target="_blank" href="Radio Button Drawing - Schoolsite.html">Radio Button Drawing</a></li><li><a target="_blank" href="Super Checkbox - Schoolsite.html">Super Checkbox</a></li><ul>';}
 else if(e == 6){
 document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a>&nbsp;&nbsp;<a href="javascript:popup(1)">[&lt;]</a></li><li><a target="_blank" href="Random Letters - Schoolsite.html">Random Letters</a></li><li><a target="_blank" href="Random Code - Schoolsite.htm">Random Code</a></li><li><a target="_blank" href="Random Colors - Schoolsite.html">Random Colors</a></li></ul>';}
+else if(e == 22){
+document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a>&nbsp;&nbsp;<a href="javascript:popup(1)">[&lt;]</a></li><li><a target="_blank" href="Super Shapes - Schoolsite.html">Super Shapes 1</a></li><li><a target="_blank" href="Super Shapes 2 - Schoolsite.html">Super Shapes 2</a></li></ul>';}
+
 
 else if(e == 7){
 var math44 = Math.floor(Math.random() * 27);
@@ -89,7 +92,7 @@ document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()"
 else{
 document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a>&nbsp;&nbsp;<a href="javascript:popup(1)">[&lt;]</a></li><li><a target="_blank" href="../archives/Mad libs/A sincere apology (17).html">A Sincere Apology</a></li><li><a target="_blank" href="../archives/Mad libs/School cafeteria (10).html">School Cafeteria</a></li><li><a target="_blank" href="../archives/Mad libs/The duck song (4).html">The Duck Song</a></li><ul>';}}
 else if(e == 8){
-document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a></li><li><a href="https://www.classroom.google.com">Google Classroom</a></li><li><a href="https://www.quizlet.com/live">Quizlet Live</a></li><li><a href="https://www.kahoot.it">Kahoot</a></li><li><a href="https://www.cfisd.net/en">cfisd.net</a></li><li><a href="https://www.my.cfisd.net">my.cfisd.net</a></li></ul>';}}
+document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a></li><li><a href="https://www.classroom.google.com">Google Classroom</a></li><li><a href="https://www.quizlet.com/live">Quizlet Live</a></li><li><a href="https://www.kahoot.it">Kahoot</a></li><li><a href="https://www.cfisd.net/en">cfisd.net</a></li><li><a href="https://my.cfisd.net">my.cfisd.net</a></li></ul>';}}
 function hi(){
 alert("hi");}
 
