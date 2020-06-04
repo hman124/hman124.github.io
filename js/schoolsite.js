@@ -70,7 +70,7 @@ document.getElementsByTagName("body")[0].style.backgroundColor = "rgb(" + harson
 function popup(e){
 document.getElementById("menu").style.display = "block";
 if(e == 1){
-document.getElementById("menu").innerHTML = "<ul><li><a href='javascript:hide()'>[&times;]</a></li><li><a href='javascript:popup(5)'>Checkbox Pages</a></li><li><a href='javascript:popup(6)'>Random Pages</a></li><li><a href='javascript:popup(7)'>Mad libs</a></li><li><a href='Crash My Browser - Schoolsite.html'>Crash My browser</a></li><li><a href=\"javascript:popup(22)\">Super Shapes</a></li></ul>";}
+document.getElementById("menu").innerHTML = "<ul><li><a href='javascript:hide()'>[&times;]</a></li><li><a href='javascript:popup(5)'>Checkbox Pages</a></li><li><a href='javascript:popup(6)'>Random Pages</a></li><li><a href='javascript:popup(7)'>Mad libs</a></li><li><a href='Crash My Browser - Schoolsite.html'>Crash My browser</a></li><li><a href=\"javascript:popup(22)\">Super Shapes</a></li><li><a href=\"../archives/Edgenuity.html\" target=\"_blank\">Edgenuity Archive</a></li></ul>";}
 else if(e == 2){
 document.getElementById("menu").innerHTML = "<ul><li><a href='javascript:hide()'>[&times;]</a></li><li><a target='_blank' href='Crab%20rave%20-%20Schoolsite.html'>Crab Rave</a></li><li><a href='javascript:crabbomb()'>Crab Bomb</a></li></ul>";}
 else if(e == 3){
