@@ -1,7 +1,5 @@
-## Schoolsite ##
+# Hman's site #
 
-A little, not so little project that started in school
+I don't have very many sites on here, but that should change soon enough!
 
-Feel free to download it and do whatever you want!
-
-The site can be viewed [here](https://hman124.github.io/schoolsite/)
+Schoolsite can be viewed [here](https://hman124.github.io/schoolsite/)
