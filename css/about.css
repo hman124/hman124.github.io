@@ -1,3 +1,7 @@
+html, body{
+width:100%;
+height:100%;
+}
 
 *{
 font-family:arial;
@@ -31,7 +35,7 @@ color:blue;
 #main, #main h3, #main, h3 a, #main hr{
 	margin-top:12px;
 }
-@media only screen and (max-width:567px){
+@media only screen and (max-width:385px){
 #popup{
 width:80%;}
 
@@ -45,15 +49,4 @@ font-size:23px;
 #top{
 	height:80px;}}
 
-@media only screen and (max-width:299px){
-#popup{
-width:80%;}
-#popup li a{
-font-size:23px;}
 
-#top ul li #link{
-font-size:25px;
-}
-
-#top{
-	height:120px;}}

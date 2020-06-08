@@ -8,8 +8,6 @@ var titlescroll;
 var animateheight;
 var animateinterval;
 
-function crabbomb(){
-window.location.replace('Crab Bomb - Schoolsite.html')}
 
 function titlescroll(){
 if(state == 1){
@@ -71,10 +69,8 @@ function popup(e){
 document.getElementById("menu").style.display = "block";
 if(e == 1){
 document.getElementById("menu").innerHTML = "<ul><li><a href='javascript:hide()'>[&times;]</a></li><li><a href='javascript:popup(5)'>Checkbox Pages</a></li><li><a href='javascript:popup(6)'>Random Pages</a></li><li><a href='javascript:popup(7)'>Mad libs</a></li><li><a href='Crash My Browser - Schoolsite.html'>Crash My browser</a></li><li><a href=\"javascript:popup(22)\">Super Shapes</a></li><li><a href=\"../archives/Edgenuity.html\" target=\"_blank\">Edgenuity Archive</a></li></ul>";}
-else if(e == 2){
-document.getElementById("menu").innerHTML = "<ul><li><a href='javascript:hide()'>[&times;]</a></li><li><a target='_blank' href='Crab%20rave%20-%20Schoolsite.html'>Crab Rave</a></li><li><a href='javascript:crabbomb()'>Crab Bomb</a></li></ul>";}
 else if(e == 3){
-document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a></li><li><a target="_blank" href="About - Schoolsite.html">About schoolsite</a></li><li><a target="_blank" href="../archives/Schoolsite/html/Main page.html">Classic Schoolsite (Ver. 3.3)</a></li><li><a target="_blank" href="../archives/Legacy schoolsite/html/Schoolsite - a Harrison production.html">Classic Schoolsite (Ver 1.1)</a></li><li><a href="credits.html">Contribution Credits</a></li><li><a href="https://discord.gg/PdDb7A4">Comments and Questions</a></li></ul>';}
+document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a></li><li><a target="_blank" href="About - Schoolsite.html">About schoolsite</a></li><li><a target="_blank" href="../archives/Schoolsite/html/Main page.html">Classic Schoolsite (Ver. 3.3)</a></li><li><a target="_blank" href="../archives/Legacy schoolsite/html/Schoolsite - a Harrison production.html">Classic Schoolsite (Ver 1.1)</a></li></ul>';}
 else if(e == 4){
 document.getElementById("menu").innerHTML = '<ul><li><a href="javascript:hide()">[&times;]</a></li><li><a href="javascript:theme(\'nocss\')">No CSS</a></li><li><a href="javascript:theme(\'color\')">Color Changing Effects</a></li><li><a href="javascript:theme(\'confusion\')">Confusion</a></li><li><a href="javascript:theme(\'confusion2\')">Confusion 2</a></li><li><a href="javascript:theme(\'none\')">None</a></li></ul>';}
 else if(e == 5){
