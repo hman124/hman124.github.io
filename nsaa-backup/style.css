@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+}
+
+#container{
+min-height: 100%;
+}
+
+#main{
+  overflow:auto;
+  padding-bottom: 20px;
+}
+
+#footer{
+  background-color: black;
+  position: relative;
+  height: 20px;
+  margin-top: -20px;
+  clear:both;
+}
