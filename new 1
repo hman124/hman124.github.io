@@ -1,17 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>NSAA Archives</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Harrison Steed">
-<meta name="description" content="A backup of the NSAA's files">
 <meta name="theme-color" content="#458cf7">
+<meta name="description" content="A backup of the NSAA's files">
 <meta property="og:site_name" content="Hman124 at Github.io">
 <meta property="og:image" content="https://hman124.github.io/nsaa-backup/title.png"> 
 <meta property="og:title" content="NSAA Archives"> 
-<meta property="og:description" content="An Archive of the NSAA's Files"> 
+<meta property="og:description" content="A Backup of the NSAA's Files"> 
 <script>
-window.location.replace("https://hman124.github.io/nsaa-backup/")
+window.location.replace("https://hman124.github.io/nsaa-backup/");
 </script>
 </head>
 <body>
