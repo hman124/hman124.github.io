@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>NSAA File Archives</title>
+<title>NSAA Archives</title>
 <meta name="author" content="Harrison Steed">
 <meta name="generator" content="A keyboard and mouse">
 <meta name="description" content="A backup of the NSAA's files">
@@ -23,14 +23,12 @@ left:0;
 padding-left:10px;}
 </style>
 <script>
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("footer").innerHTML = "<p>NSAA Backup Library | Last Backup:" + this.responseText;
-    }
-  };
-  xhttp.open("GET", "Last-Backup.txt", true);
-  xhttp.send();
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function(){
+if (this.readyState == 4 && this.status == 200) {
+document.getElementById("footer").innerHTML = "<p>NSAA Backup Library | Last Backup: " + this.responseText;}};
+xhttp.open("GET", "Last-Backup.txt", true);
+xhttp.send();
 </script>
 </head>
 <body>
@@ -49,10 +47,14 @@ padding-left:10px;}
 <li><a href="?p=membersandroles">Members And Roles</a></li>
 <li><a href="?p=policies">Policies</a></li>
 <li><a href="?p=specialcollections">Special Collections</a></li>
+<li><a href="?p=projectandoperationarchives">Project And Operation Archives</a></li>
+<li><a href="?p=nsaahistory">NSAA History Video</a></li>
+<li><a href="?p=scavengerlog">Scavenger's Log</a></li>
+<li><a href="https://quizizz.com/admin/quiz/5e546d6ba8f3e1001b1d12da">NSAA Quizizz</a></li>
 </ul>
 </div>
 <div id="footer">
-test
+NSAA Archives | An error has occurred with the last update info
 </div>
 <script src="nsaa.js"></script>
 </body>
