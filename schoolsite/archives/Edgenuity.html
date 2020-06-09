@@ -2,6 +2,21 @@
 <!-- saved from url=(0030)https://student.edgenuity.com/ -->
 <html lang="en">
 <head>
+<script>
+var inter;
+function color(e){
+inter = setInterval(set, 230, e);}
+function set(d){
+d.style.width = Math.floor(Math.random() * 101) + "%"; 
+var color1 = Math.floor(Math.random() * 226);
+var color2 = Math.floor(Math.random() * 226);
+var color3 = Math.floor(Math.random() * 226);
+d.style.backgroundColor = "rgb(" + color1 + "," + color2 + "," + color3 + ")";
+}
+function clear(){
+clearInterval(inter);
+}
+</script>
 <script src="https://kit.fontawesome.com/73574429b1.js" crossorigin="anonymous"></script>
 <link rel="shortcut icon" href="https://student.edgenuity.com/favicon.ico">
 <title>Edgenuity - Student Learning Experience</title>
@@ -88,9 +103,9 @@
 <p class="card-subject">Electives</p><h3 class="card-title" title="19-20 CFISD Computer Applications - Office 2016 - B Online">
 <a class="link-nostyle" href="javascript:void(0)">19-20 CFISD Computer Applications - Office 2016 - B Online</a></h3>
 <div class="container-progress">
-<div class="student-progress current-progress ontarget" style="width: 0.17336%;">
+<div class="student-progress current-progress ahead" onmouseover="color(this)" onmouseleave="clear()"  style="width: 68%;">
 </div></div>
-<p class="progress-label">You are: <span class="score">0.2%</span> complete</p>
+<p class="progress-label">You are: <span class="score">68%</span> complete</p>
 <div class="course-grade"><p class="course-grade-text">N/A</p>
 <p class="course-grade-percent"></p>
 <p class="course-grade-label">Actual Grade</p>
@@ -106,9 +121,9 @@
 <p class="card-subject">Language Arts</p>
 <h3 class="card-title" title="CFISD Language Arts 7 Online">
 <a class="link-nostyle" href="javascript:void(0)">CFISD Language Arts 7 Online</a></h3>
-<div class="container-progress"><div class="student-progress current-progress ahead" style="width: 12.1351%;"></div>
+<div class="container-progress"><div class="student-progress current-progress ahead" onmouseover="color(this)" onmouseleave="clear()"  style="width: 30.1351%;"></div>
 </div>
-<p class="progress-label">You are: <span class="score">12%</span> complete</p>
+<p class="progress-label">You are: <span class="score">30%</span> complete</p>
 <div class="course-grade">
 <p class="course-grade-text">N/A</p>
 <p class="course-grade-percent"></p>
@@ -125,9 +140,9 @@
 <h3 class="card-title" title="CFISD Math 7 K Level Online">
 <a class="link-nostyle" href="javascript:void(0)">CFISD Math 7 K Level Online</a></h3>
 <div class="container-progress">
-<div class="student-progress current-progress ahead" style="width: 11.4154%;"></div>
+<div class="student-progress current-progress ahead" onmouseover="color(this)" onmouseleave="clear()"  style="width: 80%;"></div>
 </div>
-<p class="progress-label">You are: <span class="score">11%</span> complete</p>
+<p class="progress-label">You are: <span class="score">80%</span> complete</p>
 <div class="course-grade">
 <p class="course-grade-text">N/A</p>
 <p class="course-grade-percent"></p>
@@ -146,9 +161,9 @@
 <a class="link-nostyle" href="javascript:void(0)">CFISD Science 7 Online</a>
 </h3>
 <div class="container-progress">
-<div class="student-progress current-progress ahead" style="width: 12.8775%;"></div>
+<div class="student-progress current-progress ahead" onmouseover="color(this)" onmouseleave="clear()"  style="width: 45%;"></div>
 </div>
-<p class="progress-label">You are: <span class="score">13%</span> complete</p>
+<p class="progress-label">You are: <span class="score">45%</span> complete</p>
 <div class="course-grade"><p class="course-grade-text">N/A</p>
 <p class="course-grade-percent"></p>
 <p class="course-grade-label">Actual Grade</p>
@@ -164,7 +179,7 @@
 <a class="link-nostyle" href="javascript:void(0)">CFISD Social Studies 7 Texas History Online</a>
 </h3>
 <div class="container-progress">
-<div class="student-progress current-progress ahead" style="width: 13.2944%;"></div>
+<div class="student-progress current-progress ahead" onmouseover="color(this)" onmouseleave="clear()" style="width: 13.2944%;"></div>
 </div>
 <p class="progress-label">You are: <span class="score">13%</span> complete</p>
 <div class="course-grade">
