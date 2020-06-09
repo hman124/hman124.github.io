@@ -29,7 +29,7 @@ left:0;
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function(){
 if (this.readyState == 4 && this.status == 200) {
-document.getElementById("footer").innerHTML = "<p>NSAA Backup Library | Last Backup: " + this.responseText " | Some of these files may be restricted by their respective authors";}};
+document.getElementById("footer").innerHTML = "<p>NSAA Backup Library | Last Backup: " + this.responseText + " | Some of these files may be restricted by their respective authors";}};
 xhttp.open("GET", "Last-Backup.txt", true);
 xhttp.send();
 </script>
