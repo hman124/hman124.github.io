@@ -16,7 +16,22 @@ color:blue;
 text-decoration:none;}
 a:hover{
 text-decoration:underline;}
+#footer{
+position:absolute;
+bottom:0;
+left:0;
+padding-left:10px;}
 </style>
+<script>
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("footer").innerHTML = "<p>NSAA Backup Library | Last Backup:" + this.responseText;
+    }
+  };
+  xhttp.open("GET", "Last-Backup.txt", true);
+  xhttp.send();
+</script>
 </head>
 <body>
 <div id="main">
@@ -29,8 +44,15 @@ text-decoration:underline;}
 <li><a href="?p=join">Joining Methods</a></li>
 <li><a href="?p=marketvalues">Market Values</a></li>
 <li><a href="?p=constitution">Constitution</a></li>
-<li><a href="?p=dayreprorts">Day Reports</a></li>
+<li><a href="?p=dayreports">Day Reports</a></li>
+<li><a href="?p=marketingstrategies">Marketing Strategies</a></li>
+<li><a href="?p=membersandroles">Members And Roles</a></li>
+<li><a href="?p=policies">Policies</a></li>
+<li><a href="?p=specialcollections">Special Collections</a></li>
 </ul>
+</div>
+<div id="footer">
+test
 </div>
 <script src="nsaa.js"></script>
 </body>
