@@ -50,11 +50,19 @@ ul{
 @media only screen and (max-width: 835px){
   #footer{
     height:40px;
+    margin-top:-40px;
+  }
+  #main{
+    padding-bottom:40px;
   }
 }
 
 @media only screen and (max-width: 402px){
   #footer{
     height:60px;
+    margin-top:-60px;
+  }
+  #main{
+    padding-bottom:60px;
   }
 }
