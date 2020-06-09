@@ -25,5 +25,10 @@ else if(window.location.href.split('=').pop() == 'nsaahistory'){
 main.innerHTML = '<h3>Video</h3><h1>NSAA History</h1><hr><iframe width="853" height="480" src="https://www.youtube.com/embed/_wekFePg1Hk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';}
 else if(window.location.href.split('=').pop() == 'scavengerlog'){
 main.innerHTML = "<h3>Slideshow</h3><h1>Scavengers Log</h1><hr><h3>Downloads:</h3><ul><li><a href=\"documents/NSAAScavengerLog.docx\" download>Word Document (<i>.docx</i>)</a></li><li><a href=\"documents/NSAAScavengerlog.pdf\" download>PDF Document (<i>.pdf</i>)</a></li></ul><h3>Links:</h3><ul><li><a href=\"https://docs.google.com/presentation/d/11ixTwPLNbrplpCl4thuiN9ebSdz3tLUumTXNDb5ECAM/edit#slide=id.p\">View Online (Google Docs)</a></li><li><a href=\"documents/NSAAScavengerlog.pdf\">View Online (PDF)</a></li></ul>";}
-
-		
+else if(window.location.href.split('=').pop() == 'terms'){
+main.innerHTML = "<h3>Page</h3><h1>Terms</h1><hr><h4><i>This site (NSAA Backup Library) is provided as a public service and is intended for use by NSAA MEMBERS AND MEMBERS OF PARTNERING COMPANIES ONLY. At no time is it acceptable to redistribute, copy, or share any of the files or links on this site - Doing so will result in the violating member being fired from the NSAA. These rules are strict. If you are not a member of the NSAA, you must LEAVE THIS SITE IMMEDIATELY.</i></h4>";}
+function hi(){
+var article = document.getElementsByTagName('body')[0];
+if (article.scrollHeight > article.clientHeight) {
+alert("yes");
+}	}

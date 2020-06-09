@@ -12,21 +12,29 @@
 <meta property="og:description" content="A Backup of the NSAA's Files"> 
 <style>
 *{
-font-family:arial;}
-ul li{
-margin:10px;}
-body{
+font-family:arial;
+padding:0;}
+ul, li{
+margin-left:30px;
+margin-top:10px;}
+body, html{
+height:98%;
 position:relative;}
+#container{
+min-height:100%;}
+#main{
+overflow:auto;
+padding-bottom:10px;}
 a{
 color:blue;
 text-decoration:none;}
 a:hover{
 text-decoration:underline;}
-#footer::before{
-padding-left:10px;
+#footer{
 position:absolute;
-bottom:0;
-left:0;}
+height:10px;
+margin-top: -10px;
+clear:both;}
 </style>
 <script>
 if(window.location.href == "https://hman124.github.io/nsaa-backup/index" || window.location.href == "https://hman124.github.io/nsaa-backup/index.html"){
@@ -40,6 +48,7 @@ xhttp.send();
 </script>
 </head>
 <body>
+<div id="container">
 <div id="main">
 <h1 style="text-align:center;">NSAA Archives</h1>
 <hr>
@@ -59,12 +68,13 @@ xhttp.send();
 <li><a href="?p=nsaahistory">NSAA History Video</a></li>
 <li><a href="?p=scavengerlog">Scavenger's Log</a></li>
 <li><a href="https://quizizz.com/admin/quiz/5e546d6ba8f3e1001b1d12da">NSAA Quizizz</a></li>
+<li><a href="?p=terms">Terms Of This Site</a></li>
 </ul>
 </div>
-<br>
-<div id="footer">
-NSAA Backup Library | An error has occurred with the last update info
 </div>
+<footer id="footer">
+NSAA Backup Library | An error has occurred with the last update info
+</footer>
 <script src="nsaa.js"></script>
 </body>
 </html>
