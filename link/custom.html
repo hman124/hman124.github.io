@@ -10,11 +10,8 @@
   <meta property="og:description" content="Add an NSAA Themed Watermark to a discord join link">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <script>
-document.getElementById("title").innerHTML = window.location.href.split('&title=').pop();
-document.getElementById("description").innerHTML = window.location.href.split('&description=').pop();
-document.getElementsByTagName("body")[0].style.backgroundImage = "url(\"" + window.location.href.split('link=').pop() + "\")";
 var o;
-var link = window.location.href.split('link=').pop();
+var link = window.location.href.split('?link=').pop();
 function redirect(){
 window.location.replace(link);}
 function start(){
