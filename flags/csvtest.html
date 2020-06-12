@@ -4,12 +4,25 @@
     if (this.readyState == 4 && this.status == 200) {
      var file = this.responseText;
 var rows = file.split("\n");
-for(var r = 0; r < rows.length; r++){
-if(rows[r].includes(",")){
-rows[r] = rows[r].replace(",", "&#44;");}
-if(rows[r].includes("\"")){
-rows[r].replace("\"", "&quot;");
+	var table = document.createElement("TABLE");
+	         for (var i = 0; i < rows.length; i++) {
+                        var cells = rows[i].split(",");
+                        if (cells.length > 1) {
+                            var row = table.insertRow(-1);
+                            for (var j = 0; j < cells.length; j++) {
+if(cells[j].includes(",")){
+cells[j] = cells[j].replace(",", "&#44;");}
+if(cells[j].includes("\"")){
+cells[j].replace("\"", "&quot;");
 }}
+                                var cell = row.insertCell(-1);
+                                cell.innerHTML = cells[j];
+                            }
+                        }
+                    }
+                    var dvCSV = document.getElementById("dvCSV");
+                    dvCSV.innerHTML = "";
+                    dvCSV.appendChild(table);
     }
   };
   xhttp.open("GET", "flags.csv", true);
