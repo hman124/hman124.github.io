@@ -1,4 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
 <script type="text/javascript">
+function set(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -26,7 +30,11 @@ cells[j].replace("\"", "&quot;");
     }
   };
   xhttp.open("GET", "flags.csv", true);
-  xhttp.send();
+  xhttp.send();}
  </script>
+ </head>
+ <body onload="set()">
 <div id="dvCSV">
 </div>
+</body>
+</html>
