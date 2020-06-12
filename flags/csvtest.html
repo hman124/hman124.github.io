@@ -5,10 +5,10 @@
      var file = this.responseText;
 rows = file.split("\n");
 for(var r = 0; r < rows.length; r++){
-if(rows[i].includes(",")){
-rows[i] = rows[i].replace(",", "&#44;");}
-if(rows[i].includes("\"")){
-rows[i].replace("\"", "&quot;");
+if(rows[r].includes(",")){
+rows[r] = rows[r].replace(",", "&#44;");}
+if(rows[r].includes("\"")){
+rows[r].replace("\"", "&quot;");
 }}
 	var table = document.createElement("TABLE");
 	         for (var i = 0; i < rows.length; i++) {
