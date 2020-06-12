@@ -1,6 +1,6 @@
 <script type="text/javascript">
     function Upload() {
-        var fileUpload = "flags.csv";
+        var fileUpload = "www.hman124.ml/flags/flags.csv";
         var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
         if (regex.test(fileUpload.toLowerCase())) {
             if (typeof (FileReader) != "undefined") {
@@ -22,7 +22,7 @@
                     dvCSV.innerHTML = "";
                     dvCSV.appendChild(table);
                 }
-                reader.readAsText("flags.csv");
+                reader.readAsText("www.hman124.ml/flags/flags.csv");
             } else {
                 alert("This browser does not support HTML5.");
             }
