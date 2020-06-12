@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="author" content="Harrison Steed - Software Engineer">
+<meta name="description" content="A list of the best scenerios about school">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best School Configuration</title>
+<script src="https://kit.fontawesome.com/73574429b1.js" crossorigin="anonymous"></script>
+<style>
+h3, p{
+font-family:arial;}
+span{
+display:block;
+}
+ol li{
+font-family:arial;
+margin:10px;}
+span, div, p{
+cursor:default;}
+#test{
+display:none;
+background-color:#f2f2f2;
+padding:4px;
+border-radius:5px;
+position:absolute;}
+</style>
+</head>
+<body>
+<ol>
+<li>Your stop is the first for the bus. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You get the best seats, don\'t have to sit on the edge ever, and don\'t have to wait.')" class="fas fa-info-circle"></span></li>
+<li>Your first period is close to the entrance. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You don\'t have to walk very far.')" class="fas fa-info-circle"></span></li>
+<li>Your first and second periods have the most average homework. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You can get it all done in advisory.')" class="fas fa-info-circle"></span></li>
+<li>The period you have before lunch is close to the cafeteria. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You can get to lunch first without running.')" class="fas fa-info-circle"></span></li>
+<li>You sit in section 1 at lunch. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You get to be first in the lunch line and first to leave.')" class="fas fa-info-circle"></span></li>
+<li>You don't have gym after lunch. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You get time to digest your food.')" class="fas fa-info-circle"></span></li>
+<li>Your eighth period is close to the buses. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You get the best seats.')" class="fas fa-info-circle"></span></li> 
+<li>Your teachers aren't annoying / are reasonable / are nice.</li>
+<li>Your classmates / people you associate with aren't annoying or mean.</li>
+<li>You sit in the back of the bus. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'The back is the best spot.')" class="fas fa-info-circle"></span></li>
+<li>You don't have too much homework.</li>
+<li>Your classes are close together. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You don\'t have to walk very far between classes')" class="fas fa-info-circle"></span></li>
+<li>You actually enjoy your electives.</li>
+<li>You can find good books at the library. <span onmouseleave="hide()" onmouseenter="showCoords(event, 'You don\'t have to spend all of your time at the library looking for books')" class="fas fa-info-circle"></span></li>
+</ol>
+<div id="test">
+<p id="demo" style="margin:0; padding:0;"></p>
+</div>
+<script>
+function hide(){
+document.getElementById("test").style.display = "none";}
+function showCoords(it, e) {
+  var x = it.clientX;
+  document.getElementById("test").style.display = "block";
+  var y = it.clientY - 16;
+  document.getElementById("test").style.left = x + "px";
+  document.getElementById("test").style.top = y + "px";
+  document.getElementById("demo").innerHTML = e;}
+</script>
+</body>
+</html>
