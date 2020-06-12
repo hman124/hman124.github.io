@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<style>
+table, tr, td{
+border-style:solid;
+border-collapse:collapse;
+}
+td{
+padding:10px;
+}
+</style>
 <script type="text/javascript">
 function set(){
   var xhttp = new XMLHttpRequest();
@@ -11,17 +20,19 @@ var rows = file.split("\n");
 	var table = document.createElement("TABLE");
 	         for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
-                        if (cells.length > 1) {
+                        if (cells.length > 1){
+						if(i == 0){
+						  var row = table.insertRow(-1);
+                            for (var j = 0; j < cells.length; j++) {
+                            var cell = row.insertCell(-1);
+                                cell.innerHTML = "<b>" + cells[j] + "<b>";
+						}
+						else{
                             var row = table.insertRow(-1);
                             for (var j = 0; j < cells.length; j++) {
-if(cells[j].includes(",")){
-cells[j] = cells[j].replace(",", "&#44;");}
-if(cells[j].includes("\"")){
-cells[j].replace("\"", "&quot;");
-}
-                                var cell = row.insertCell(-1);
+                            var cell = row.insertCell(-1);
                                 cell.innerHTML = cells[j];
-                            }
+                            }}
                         }
                     }
                     var dvCSV = document.getElementById("dvCSV");
