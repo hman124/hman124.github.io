@@ -4,18 +4,17 @@
     if (this.readyState == 4 && this.status == 200) {
      var file = this.responseText;
 rows = file.split("\n");
-for(var r = 0; r < rows.length; r++){
-if(rows[r].includes(",")){
-rows[r] = rows[r].replace(",", "&#44;");}
-if(rows[r].includes("\"")){
-rows[r].replace("\"", "&quot;");
-}}
 	var table = document.createElement("TABLE");
 	         for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
                         if (cells.length > 1) {
                             var row = table.insertRow(-1);
                             for (var j = 0; j < cells.length; j++) {
+							if(rows[j].includes(",")){
+							rows[j] = rows[j].replace(",", "&#44;");}
+							if(rows[j].includes("\"")){
+							rows[j].replace("\"", "&quot;");
+								}		
                                 var cell = row.insertCell(-1);
                                 cell.innerHTML = cells[j];
                             }
