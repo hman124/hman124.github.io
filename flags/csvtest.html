@@ -3,14 +3,25 @@
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      var file = this.responseText;
-	 alert(file);
+rows = file.split("/n");
+	var table = document.createElement("TABLE");
+	         for (var i = 0; i < rows.length; i++) {
+                        var cells = rows[i].split(",");
+                        if (cells.length > 1) {
+                            var row = table.insertRow(-1);
+                            for (var j = 0; j < cells.length; j++) {
+                                var cell = row.insertCell(-1);
+                                cell.innerHTML = cells[j];
+                            }
+                        }
+                    }
+                    var dvCSV = document.getElementById("dvCSV");
+                    dvCSV.innerHTML = "";
+                    dvCSV.appendChild(table);
     }
   };
   xhttp.open("GET", "flags.csv", true);
   xhttp.send();
  </script>
-<input type="file" value="https://hman124.ml/flags/flags.csv" id="fileUpload">
-<input type="button" id="upload" value="Upload" onclick="Upload()">
-<hr />
 <div id="dvCSV">
 </div>
