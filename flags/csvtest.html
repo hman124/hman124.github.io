@@ -3,7 +3,7 @@
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      var file = this.responseText;
-rows = file.split("\n");
+var rows = file.split("\n");
 for(var r = 0; r < rows.length; r++){
 if(rows[r].includes(",")){
 rows[r] = rows[r].replace(",", "&#44;");}
