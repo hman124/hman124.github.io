@@ -2,7 +2,7 @@
     function Upload() {
         var fileUpload = "www.hman124.github.io/flags/flags.csv";
         var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
-        if (regex.test(fileUpload.value.toLowerCase())) {
+        if (regex.test(fileUpload.toLowerCase())) {
             if (typeof (FileReader) != "undefined") {
                 var reader = new FileReader();
                 reader.onload = function (e) {
