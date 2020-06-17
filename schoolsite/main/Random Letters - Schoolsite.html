@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<title>Random Text - Schoolsite</title>
+<link rel="icon" href="../media/numbers.png">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+var text = " ";
+var numbere;
+var inter;
+var timee;
+function clear(){
+text = "";
+document.getElementById("p").innerHTML = ' ';}
+function translate(){
+numbere = Math.floor(Math.random() * 27);
+if(text.includes('yes') == true){
+clearInterval(inter);
+clearInterval(timee);}
+else{
+if(numbere == 1){
+text += 'a';}else if(numbere == 2){
+text += 'b';}else if(numbere == 3){
+text += 'c';}else if(numbere == 4){
+text += 'd';}else if(numbere == 5){
+text += 'e';}else if(numbere == 6){
+text += 'f';}else if(numbere == 7){
+text += 'g';}else if(numbere == 8){
+text += 'h';}else if(numbere == 9){
+text += 'i';}else if(numbere == 10){
+text += 'j';}else if(numbere == 11){
+text += 'k';}else if(numbere == 12){
+text += 'l';}else if(numbere == 13){
+text += 'm';}else if(numbere == 14){
+text += 'n';}else if(numbere == 15){
+text += 'o';}else if(numbere == 16){
+text += 'p';}else if(numbere == 17){
+text += 'q';}else if(numbere == 18){
+text += 'r';}else if(numbere == 19){
+text += 's';}else if(numbere == 20){
+text += 't';}else if(numbere == 21){
+text += 'u';}else if(numbere == 22){
+text += 'v';}else if(numbere == 23){
+text += 'w';}else if(numbere == 24){
+text += 'x';}else if(numbere == 25){
+text += 'y';}else if(numbere == 26){
+text += 'z<br>';}
+document.getElementById("p").innerHTML = text;
+window.scrollTo(0,document.body.scrollHeight);}}
+</script>
+</head>
+<body style='overflow:hidden;' onload="timee = setInterval(clear, 50000); inter = setInterval(translate, 000000001)">
+<div style='position:absolute;width:90%;'>
+<p id="p"></p>
+</div>
+</body>
+</html>

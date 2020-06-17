@@ -1,0 +1,13 @@
+body, p, div, button, ol{
+	font-family:arial;
+	text-align:center; 
+	margin-left:auto; 
+	margin-right: auto;
+	}
+	#secret{
+	text-decoration:none;
+	color:black
+	}
+	input:focus{
+	outline:none;
+	}

@@ -1,0 +1,56 @@
+<html>
+<head>
+<title id="title" >Mad libs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+  <title>Mad libs</title>
+</head>
+  <body id="body">
+    <center><h1 style="font-family:sans-serif;" id="h1">Mad libs</h1></center>
+    <hr>
+    <form action="" id="form">
+	<label  style="font-family:sans-serif;" for="adjective1">10 Questions</label><br>
+      <input  placeholder="&nbsp;&nbsp;Adjective"type="text" name="adjective1" id="adjective1">
+      <br>
+      <input placeholder="&nbsp;Verb" type="text" name="verb1" id="verb1">
+      <br>
+	    <input placeholder="&nbsp;Adjective" type="text" name="adjective2" id="adjective2">
+      <br>
+      <input placeholder="&nbsp;Noun" type="text" name="noun1" id="noun1">
+      <br>
+      <input type="text"  placeholder="&nbsp;Verb" name="verb2" id="verb2">
+      <br>
+      <input type="text"  placeholder="&nbsp;Adjective" name="adjective3" id="adjective3">
+      <br>
+      <input type="text"  placeholder="&nbsp;Adjective" name="adjective4" id="adjective4">
+      <br>
+      <input type="text"  placeholder="&nbsp;Adjective" name="adjective5" id="adjective5">
+      <br>
+      <input type="text"  placeholder="&nbsp;Noun" name="noun2" id="noun2">
+      <br>
+      <input type="text"  placeholder="&nbsp;Noun" name="noun3" id="noun3">
+      <br>
+	    <button type="button" onclick="formsub(); setTimeout(formsub2, .1)" name="button">Submit</button>
+    </form>
+	<p id="p1"></p>
+	</body>
+<script>
+  var adjective1 = document.getElementById('adjective1')
+  var verb1 = document.getElementById('verb1')
+  var adjective2 = document.getElementById('adjective2')
+  var noun1 = document.getElementById('noun1')
+  var verb2 = document.getElementById('verb2')
+  var adjective3 = document.getElementById('adjective3')
+  var adjective4 = document.getElementById('adjective4')
+  var adjective5 = document.getElementById('adjective5')
+  var noun2 = document.getElementById('noun2')
+  var noun3 = document.getElementById('noun3')
+
+
+  function formsub(){
+	p1.innerHTML = "Our school cafeteria has really " + adjective1.value + " food. Just thinking about it makes my stomach  " + verb1.value + ". The spagetti is " + adjective2.value + " and tastes like " + noun1.value + ". One day, I swear one of my meatballs started to " + verb2.value + "! The turkey tacos are totally " + adjective3.value + ". My freind Dana actually likes the meatloaf even though it's " + adjective4.value + " and " + adjective5.value + ". I call it 'mystery meatloaf' and think it's really made of " + noun2.value + ". My dad said he'd make me lunches, but the first day, he made me a sandwhich out of " + noun3.value + " and peanut butter! I think i'd rather take my chances with the cafeteria!";}
+  function formsub2(){
+  document.getElementById('form').innerHTML = '';
+  document.getElementById('h1').innerHTML = "Our cafeteria";}
+  </script>
+  </html>
