@@ -79,17 +79,21 @@ text-decoration:underline;}
 </tbody>
 </table>
 </div>
-<a href="javascript:toggleConfetti()">Yes</a>
 <h3 style="text-align:center; font-family:arial;"><a href="mailto:harrison@m.steed.ml&subject=New Idea">Email Me</a> For Any New Ideas</h3>
-<script src="confetti.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
 <script>
-console.log("Harrison Steed :)")
-console.log("%cGreetings!", "color:blue; font-size:50px; font-weight:700;")
-console.log("%cWelcome to the console", "color:orange; font-size:20px; font-weight:700;")
-console.log("%cType \"confetti()\" down here 👇, then press enter", "color:green; font-size:20px; font-weight:700;")
-function confetti(){
-return "surprise!";
-} 
+console.log("Harrison Steed :)");
+console.log("%cGreetings!", "color:blue; font-size:50px; font-weight:700;");
+console.log("%cWelcome to the console", "color:orange; font-size:20px; font-weight:700;");
+console.log("%cType \"party()\" down there 👇, then press enter.", "color:green; font-size:20px; font-weight:700");;
+function party(){
+alert("Disclaimer: I did not make this, I simply added it into this site. It is not mine.", "color:Red;")
+confetti.particlespeed = 10;
+confetti.start();
+setTimeout(confetti.stop, 10000);
+return "Here it is!";
+}
 </script>
 </body>
 </html>
