@@ -10,6 +10,9 @@ padding:0;
 body, html{
 height:100%;
 }
+div{
+padding:10px;
+}
 
 table, tr, td{
 border-style:solid;
@@ -132,7 +135,11 @@ text-align:left;
 </div>
 <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
 <script>
-document.getElementsByTagName("a")[4].addEventListener('click', function (){confetti.particlespeed = 10; confetti.start(); setTimeout(confetti.stop, 10000);});
+function party(){
+confetti.particlespeed = 10;
+confetti.maxCount = 300;
+confetti.start();
+setTimeout(confetti.stop, 10000);};
 </script>
 </body>
 </html>
