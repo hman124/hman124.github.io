@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Harrison Steed :) -->
+<title>NSAA Server</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="custom discord widget for the NSAA">
+<style>
+div{
+border-style:solid;
+padding:10px;
+width:250px;
+border-radius:8px;}
+h2, h1{
+font-family:arial;}
+p{
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+font-size:20px;
+font-family:arial;}
+p::first-letter{
+text-transform: uppercase;}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div>
+<h1></h1>
+</div>
+<script>
+//Harrison Steed :)
+
+//Getting The Widget
+fetch('https://discord.com/api/guilds/627898254096465922/widget.json')
+  .then(response => response.json())
+  .then(data => set(data));
+  
+//Getting The Things
+const mainheading = document.getElementsByTagName("h1")[0];
+
+//Setting The Things
+const set = (data) => {
+mainheading.innerHTML = data.name;
+var i;
+
+//Creating Elements
+for(i = 0; i < data.members.length; i++){
+if(data.members[i].username !== "counting" && data.members[i].username !== "Dyno" && data.members[i].username !== "ECONOMY-BOT" && data.members[i].username !== "MEE6"){
+//Username
+var p = document.createElement("H2");
+p.innerHTML = "@" + data.members[i].username;
+document.getElementsByTagName("div")[0].appendChild(p); 
+//Status
+var stat = document.createElement("P");
+if(data.members[i].status == "online"){
+stat.style.color = "green";}
+else if(data.members[i].status == "idle"){
+stat.style.color = "yellow";}
+stat.innerHTML = data.members[i].status;
+document.getElementsByTagName("div")[0].appendChild(stat);}}}
+</script>
+</body>
+</html>
