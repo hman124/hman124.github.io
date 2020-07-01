@@ -10,7 +10,9 @@
 <img>
 <script>
 //Harrison Steed :)
-
+const set = (data) => {
+cont = data;}
+alert(cont.name);
 //Getting The Widget
 fetch('https://discord.com/api/guilds/627898254096465922/widget.json')
   .then(response => response.json())
@@ -19,11 +21,8 @@ fetch('https://discord.com/api/guilds/627898254096465922/widget.json')
 //Getting The Things
 const mainheading = document.getElementsByTagName("h1")[0];
 const img1 = document.getElementsByTagName("img")[0];
+var cont;
 
-//Setting The Things
-const set = (data) => {
-mainheading.innerHTML = data.name;
-}
 </script>
 </body>
 </html>
