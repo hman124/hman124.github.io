@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <!-- Harrison Steed :) -->
-<title>Yes</title>
+<title>NSAA Server</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="custom discord widget for the NSAA">
 <style>
 div{
 border-style:solid;
@@ -39,11 +41,15 @@ const mainheading = document.getElementsByTagName("h1")[0];
 const set = (data) => {
 mainheading.innerHTML = data.name;
 var i;
+
+//Creating Elements
 for(i = 0; i < data.members.length; i++){
 if(data.members[i].username !== "counting" && data.members[i].username !== "Dyno" && data.members[i].username !== "ECONOMY-BOT" && data.members[i].username !== "MEE6"){
+//Username
 var p = document.createElement("H2");
 p.innerHTML = "@" + data.members[i].username;
 document.getElementsByTagName("div")[0].appendChild(p); 
+//Status
 var stat = document.createElement("P");
 if(data.members[i].status == "online"){
 stat.style.color = "green";}
