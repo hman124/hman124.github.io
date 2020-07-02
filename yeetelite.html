@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Harrison Steed :) -->
+<title>Yeet Elite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="custom discord widget for the NSAA">
+<style>
+div{
+border-style:solid;
+padding:10px;
+width:250px;
+border-radius:8px;}
+h2, h1, h3, h4{
+font-family:arial;}
+p{
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+font-size:20px;
+font-family:arial;}
+p::first-letter{
+text-transform: uppercase;}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h3>Custom Widget</h3>
+<div>
+<h1></h1>
+</div>
+<h3>Discord Widget</h3>
+<iframe id="discordwidget" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+<script>
+//Harrison Steed :)
+
+//setting the discord widget to a random value to discourage caching
+var d = new Date();
+var n = d.getMilliseconds();
+document.getElementById("discordwidget").src = "https://discord.com/widget?id=637397156357210113&theme=dark&hmansnumber=" + n;
+
+//Getting The Widget
+fetch('https://discord.com/api/guilds/637397156357210113/widget.json?hmansnumber=' + n)
+  .then(response => response.json())
+  .then(data => set(data));
+
+//Getting The Things
+const mainheading = document.getElementsByTagName("h1")[0];
+
+//Setting The Things
+const set = (data) => {
+mainheading.innerHTML = data.name;
+var i;
+var count = 0;
+var botcount = 0;
+// Add Bots at the beginning
+//Creating Elements
+for(i = 0; i < data.members.length; i++){
+if(data.members[i].username != "counting" && data.members[i].username != "Dyno" && data.members[i].username != "ECONOMY-BOT" && data.members[i].username != "MEE6"){
+//Username
+var p = document.createElement("H2");
+
+p.innerHTML = "@" + data.members[i].username;
+document.getElementsByTagName("div")[0].appendChild(p);
+//Status
+var stat = document.createElement("P");
+
+if(data.members[i].status == "online"){
+stat.style.color = "#3EA777";}
+
+else if(data.members[i].status == "idle"){
+stat.style.color = "#EE9E19";}
+
+else if(data.members[i].status == "dnd"){
+stat.style.color = "#E94545";}
+stat.innerHTML = data.members[i].status;
+document.getElementsByTagName("div")[0].appendChild(stat);
+
+//invisible detection
+count++;}
+else{
+botcount++;
+}}
+
+var presencecount = document.createElement("h3");
+presencecount.innerHTML = botcount + " Bots And " + (data.presence_count - botcount) + " Members Are Online. " + (data.presence_count - (count + botcount));
+if(data.presence_count - (count + botcount) === 1){
+presencecount.innerHTML += " Member Is Invisible.";}
+else{
+presencecount.innerHTML += " Members Are Invisible.";}
+document.getElementsByTagName("div")[0].appendChild(presencecount);}
+</script>
+</body>
+</html>
