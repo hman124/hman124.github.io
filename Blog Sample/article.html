@@ -319,11 +319,13 @@
   Nullam auctor magna vel magna ullamcorper ultrices. Donec in neque ut mi porta egestas. Nulla tincidunt ut sem a convallis. Suspendisse placerat ullamcorper ante, sit amet scelerisque libero vulputate sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec tincidunt id nulla sit amet accumsan. Curabitur maximus eleifend tortor, eget fringilla odio ultrices sit amet. Ut venenatis eleifend quam sed pretium. Fusce luctus congue semper. Aliquam porttitor turpis et mattis varius. Phasellus sagittis dolor hendrerit, ornare eros eget, porta nisl. Aenean non quam bibendum, interdum neque scelerisque, bibendum arcu.</p>
 </div>
 <script>
-fetch('https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US')
+fetch('https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US', {
+credentials: "include"
+})
   .then(response => response.json())
   .then(data => set(data));
 const set = (data) => {
-  document.getElementsByClassName("top-image")[0].style.backgroundImage = data.images.url;
+  document.getElementsByClassName("top-image")[0].style.backgroundImage = "url(\'https://bing.com" + data.images.url + ")";
 }
 </script>
 </body>

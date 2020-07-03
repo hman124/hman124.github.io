@@ -8,6 +8,16 @@ height:100%;
 font-family: sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .top-image{
   height:30%;
   width:100%;
