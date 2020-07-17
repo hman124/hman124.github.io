@@ -20,6 +20,7 @@ box-sizing: border-box;
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 width:100%;
+border-bottom-style:inset;
 height:30px;
 line-height:30px;
 padding-left:10px;
@@ -42,10 +43,6 @@ background-color:#ccc;
 	display:block;
 }
 
-.top-nav ul li a:visited{
-	color:#4b48f7;
-}
-
 .top-nav ul li a:hover{
 	text-decoration:underline;
 }
@@ -55,12 +52,22 @@ background-color:#ccc;
 	z-index:5;
 	position:absolute;
 	margin-top:5px;
-	width:150px;
-	height:190px;
-	background-color:#ccc;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:10px;
+	padding-bottom:10px;
+	background-color:white;
+	border-style:solid;
+	border-color:black;
 	border-radius:6px;
 }
 
-
+.popup a{
+	color:black;
+	text-decoration:underline;
+	font-weight:700;
+	font-size:16px;
+	
+}
 
 
