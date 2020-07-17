@@ -71,7 +71,7 @@
       }
       input.disabled = true;
       button.disabled = true;
-      var link = "https://hman124.github.io/link/custom?link=" + input.value + "&title=" + document.getElementById("title").value + "&description=" + document.getElementById("description").value + "&image=" + document.getElementById("image").value;
+      var link = "https://hman124.ml/link/custom?link=" + input.value + "&title=" + document.getElementById("title").value + "&description=" + document.getElementById("description").value + "&image=" + document.getElementById("image").value;
       document.getElementsByTagName('body')[0].innerHTML += "<h3>Result:</h3><textarea id=\"myInput\" spellcheck=\"false\" style=\"resize:none;\" rows=\"5\" cols=\"50\">" + link +
         "</textarea><input type=\"button\" onclick=\"copy()\" id=\"copy\" value=\"Copy\"><h3>Optional: Make TinyURL</h3><form action=\"https://tinyurl.com/create.php\" method=\"post\" target=\"_blank\"><br><h3>Link:</h3><b style=\"word-wrap:break-word;\" id=\"preview\"></b><input type=\"hidden\" id=\"ur\" name=\"url\"><h3>Custom Alias (Optional):</h3><input type=\"text\" id=\"alias\" name=\"alias\" placeholder=\"Alias\" maxlength=\"30\"><br><b>May contain letters, numbers, and dashes.</b><input type=\"submit\" name=\"submit\" value=\"Make TinyURL!\"></form>";
       document.getElementById('preview').innerHTML = link;

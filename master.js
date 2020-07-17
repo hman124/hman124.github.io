@@ -4,13 +4,12 @@ window.onclick = e => {
  if(e.target != document.getElementById("popup") && popupstate == 1 && e.target != document.getElementsByTagName("a")[0] && e.target != document.getElementsByTagName("a")[1]){
 	  document.getElementById("popup").style.display = "none";
   popupstate = 0;
-  }
-   }
+  }}
 
 //The main Popup script
 document.getElementsByTagName("a")[1].addEventListener("click", function(event){
 mouseX = event.clientX;
-popup.innerHTML = "<a href=\"#\">Custom Loading Screen Maker</a>";
+popup.innerHTML = "<p>Placeholder Text</p>";
 popup.style.display = "block";
 popup.style.left = mouseX + "px";
 popupstate = 1;
@@ -20,7 +19,7 @@ popupstate = 1;
 document.getElementsByTagName("a")[0].addEventListener("click", function(event){
 mouseX = event.clientX;
 popup.style.display = "block";
-popup.innerHTML = "";
+popup.innerHTML = "<a href=\"link/\">Custom Loading Screen Maker</a>";
 popup.style.left = mouseX + "px";
 popupstate = 1;
 });
