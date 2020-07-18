@@ -19,7 +19,7 @@ popupstate = 1;
 document.getElementsByTagName("a")[0].addEventListener("click", function(event){
 mouseX = event.clientX;
 popup.style.display = "block";
-popup.innerHTML = "<a href=\"link/\">Custom Loading Screen Maker</a>";
+popup.innerHTML = "<a href=\"link/\">Custom Loading Screen Maker</a><a href=\"mailSend\">MailSend</a>";
 popup.style.left = mouseX + "px";
 popupstate = 1;
 });
