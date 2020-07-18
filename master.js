@@ -4,12 +4,15 @@ window.onclick = e => {
  if(e.target != document.getElementById("popup") && popupstate == 1 && e.target != document.getElementsByTagName("a")[0] && e.target != document.getElementsByTagName("a")[1]){
 	  document.getElementById("popup").style.display = "none";
   popupstate = 0;
-  }}
+  }
+  clickCount++;
+  if(clickCount == 100){
+	  alert("Acheivement!");}}
 
 //The main Popup script
 document.getElementsByTagName("a")[1].addEventListener("click", function(event){
 mouseX = event.clientX;
-popup.innerHTML = "<p>Placeholder Text</p>";
+popup.innerHTML = "<a href=\"achievements\">Achievements</a>";
 popup.style.display = "block";
 popup.style.left = mouseX + "px";
 popupstate = 1;
@@ -34,3 +37,7 @@ function checkMobile(){
 	  alert("you are on desktop!")
   }
 };
+
+
+//Acheivements
+var clickCount = 0;
