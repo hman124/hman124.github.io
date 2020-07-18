@@ -9,7 +9,7 @@ window.onclick = e => {
 //The main Popup script
 document.getElementsByTagName("a")[1].addEventListener("click", function(event){
 mouseX = event.clientX;
-popup.innerHTML = "<p>Placeholder Text</p>";
+popup.innerHTML = "<a href=\"javascript:checkMobile();\">Check Browser</a>";
 popup.style.display = "block";
 popup.style.left = mouseX + "px";
 popupstate = 1;
@@ -19,7 +19,7 @@ popupstate = 1;
 document.getElementsByTagName("a")[0].addEventListener("click", function(event){
 mouseX = event.clientX;
 popup.style.display = "block";
-popup.innerHTML = "<a href=\"link/\">Custom Loading Screen Maker</a><a href=\"mailSend\">MailSend</a>";
+popup.innerHTML = "<a href=\"link/\">Custom Loading Screen Maker</a><br><a href=\"mailSend\">MailSend</a>";
 popup.style.left = mouseX + "px";
 popupstate = 1;
 });
