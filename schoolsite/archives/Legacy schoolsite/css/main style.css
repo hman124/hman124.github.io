@@ -1,0 +1,37 @@
+nav ul li a{
+  text-decoration: none;
+  color: green;
+  font-family: sans-serif;
+  display: block;
+}
+nav ul li{
+  float: left;
+  list-style: none;
+  padding-left: 20px;
+  position: relative;
+  top: 9px;
+  left: -50px;
+}
+nav{
+  background-color: #eee;
+  height: 40px;
+  width: 105%;
+  position:relative;
+  top: -15px;
+  left: -9px;
+}
+h1{
+  position: relative;
+  top:-20px;
+  font-family: sans-serif;
+  color: blue;
+  font-size: 20px;
+}
+p{
+font-family: sans-serif;
+font-size:40px;}
+
+marquee{
+font-size:40px;
+font-family:sans-serif;
+color:blue;}

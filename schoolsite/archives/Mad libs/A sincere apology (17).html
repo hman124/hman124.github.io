@@ -1,0 +1,81 @@
+<html>
+<head>
+<title id="title" >Mad libs</title>
+</head>
+  <title>Mad libs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+  <body id="body">
+    <center><h1 style="font-family:sans-serif;" id="h1">Mad libs</h1></center>
+    <hr>
+    <form action="" id="form">
+	<label  style="font-family:sans-serif;" for="adjective1">17 Questions</label><br>
+      <input  placeholder="&nbsp;Last Name"type="text" id="lastname">
+      <br>
+      <input  placeholder="&nbsp;Adjective"type="text" id="adjective1">
+      <br>
+      <input  placeholder="&nbsp;Noun" type="text" id="noun1">
+      <br>
+      <input  placeholder="&nbsp;A place" type="text" id="place1">
+      <br>
+      <input  placeholder="&nbsp;Verb ending in (ing)" type="text" id="verb1">
+      <br>
+      <input  placeholder="&nbsp;Color" type="text" id="color1">
+      <br>
+      <input  placeholder="&nbsp;Noun" type="text" id="noun2">
+      <br>
+      <input  placeholder="&nbsp;Verb" type="text" id="verb2">
+      <br>
+      <input  placeholder="&nbsp;Part of the body plural" type="text" id="bp1">
+      <br>
+      <input  placeholder="&nbsp;Silly word" type="text" id="silly1">
+      <br>
+      <input  placeholder="&nbsp;Adjective" type="text" id="adjective2">
+      <br>
+      <input  placeholder="&nbsp;Noun" type="text" id="noun3">
+      <br>
+      <input  placeholder="&nbsp;Verb" type="text" id="verb3">
+      <br>
+      <input  placeholder="&nbsp;Noun" type="text" id="noun4">
+      <br>
+      <input  placeholder="&nbsp;Noun" type="text" id="noun5">
+      <br>
+      <input  placeholder="&nbsp;Adjective" type="text" id="adjective3">
+      <br>
+      <input  placeholder="&nbsp;Name" type="text" id="name1">
+      <br>
+	    <button type="button" onclick="formsub(); setTimeout(formsub2, .1)" name="button">Submit</button>
+    </form>
+	<p id="p1"></p>
+</body>
+<script>
+  var p1 = document.getElementById('p1')
+  var lastname = document.getElementById('lastname')
+  var adjective1 = document.getElementById('adjective1')
+  var noun1 = document.getElementById('noun1')
+  var place1 = document.getElementById('place1')
+  var verb1 = document.getElementById('verb1')
+  var color1 = document.getElementById('color1')
+  var noun2 = document.getElementById('noun2')
+  var verb2 = document.getElementById('verb2')
+  var bp1 = document.getElementById('bp1')
+  var silly1 = document.getElementById('silly1')
+  var adjective2 = document.getElementById('adjective2')
+  var noun3 = document.getElementById('noun3')
+  var verb3 = document.getElementById('verb3')
+  var noun4 = document.getElementById('noun4')
+  var noun5 = document.getElementById('noun5')
+  var adjective3 = document.getElementById('adjective3')
+  var name1 = document.getElementById('name1')
+
+function formsub(){
+	p1.innerHTML = "Dear Mrs." + lastname.value + "<br>" + "     I am truly " + adjective1.value + " for disrupting yesterday's class on the customs of the " + noun1.value + " native tribes of (the) " + place1.value + ". It was rude of me to burst out " + verb1.value + " when you said that the tribal cheif wore a/an " + color1.value + "-feathered headpiece in the shape of a winged " + noun2.value + ". And my decision to "
+   + verb2.value + " in a circle with my " + bp1.value + " outstreched while chanting " + silly1.value + "! " + silly1.value + "! Was very inappropriate - even though I was only trying to mimic the " + adjective2.value + " native dance. I know there's a time and a place for that kind of " + noun3.value + "-And your class was not it. I know that you " + verb3.value + " very hard as a teacher and deserve respect for teaching me and my fellow " + noun4.value + " every day. I hope you accept my sincere " + noun5.value +
+    " and believe that I will never exercise such " + adjective3.value + " judgement again." + "<br>" + "Sincerely," + "<br>" + name1.value;}
+
+     function formsub2(){
+      document.getElementById('form').innerHTML = '';
+      document.getElementById('h1').innerHTML = "A sincere apology";
+      document.getElementById('button').innerHTML = "Save";}
+  </script>
+  </html>

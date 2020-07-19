@@ -1,0 +1,110 @@
+.mainmenu ul li a{
+  text-decoration: none;
+  color: green;
+  font-family: sans-serif;
+  display: block;
+  font-weight:700;
+}
+.mainmenu ul li{
+  float: left;
+  list-style: none;
+  padding-left: 20px;
+  position: relative;
+  top: 9px;
+  left: -45px;
+}
+.mainmenu{
+background-color:#fff;
+height: 40px;
+width: 106%;
+position:relative;
+top: -16px;
+left: -15px;
+background-position:right;
+background-image:url('../Media/back.png');
+background-repeat:no-repeat
+}
+h1{
+position: relative;
+top:-20px;
+font-family: sans-serif;
+color: blue;
+font-size: 20px;
+}
+li a:hover{
+text-decoration:underline;}
+
+#menu{
+background-color: rgb(0,0,0);
+width:150px;
+height:150px;
+background-color:gray;
+border-radius:15px;
+display:none;
+margin-left:490px;
+margin-top:-15px;
+float:none;
+position:relative;
+position:fixed;
+z-index:1;
+}
+#menu ul li{
+list-style:none;
+font-family:arial;
+padding: 15px;
+margin-left: -40px;
+}
+#menu ul li a{
+text-decoration:none;
+color:white;
+font-family: arial;
+text-decoration: none;
+color:white;
+display: block;
+}
+body{
+background-image: url('squares.png');
+overflow:hidden;
+}
+#nogin{
+display:block;
+}
+#hide{
+display:block;
+}
+.mainmenu{
+animation-name: example;
+animation-duration: 3s;
+animation-fill-mode: forwards;
+position:relative;
+animation-play-state: paused;
+
+}
+@keyframes example{
+	 from {left: -8px;}
+  to {left: 1500px;}
+}
+#login{
+
+}
+#loginput{
+	animation-name: example1;
+animation-duration: 3s;
+animation-fill-mode: forwards;
+position:relative;
+animation-play-state: paused;
+}
+@keyframes example1{
+	 from {left: -190px;}
+  to {left: 535px; display:none;}
+}
+#butto{
+	border-radius:15px;
+	height:23px;
+	width:50px;
+	margin-left:55px;
+}
+#login{
+	height:20px;
+	border-radius:15px;
+}

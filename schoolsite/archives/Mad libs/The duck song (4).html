@@ -1,0 +1,53 @@
+<html>
+<head>
+<title id="title" >Mad libs - the duck song</title>
+</head>
+  <title>Mad libs</title>
+  <style media="screen">
+  form input{
+    margin-top: 10px;
+    border: 2px solid #5e6363;
+    border-radius: 10px;
+  }
+  button{
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+   form input[type=text]:focus {
+  border: 2px solid #088fa3;
+}
+p{
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 550;
+}
+  </style>
+</head>
+  <body>
+    <center><h1 style="font-family:sans-serif;">The Duck Song</h1></center>
+    <hr>
+    <form action="">
+      <br>
+      <input  placeholder="&nbsp;Species 1"type="text" name="noun1" id="noun1">
+      <br>
+      <input placeholder="&nbsp;Species 2" type="text" name="noun4" id="noun4">
+      <br>
+	    <input placeholder="&nbsp;Greeting" type="text" name="noun2" id="noun2">
+      <br>
+      <input placeholder="&nbsp;Object (plural)" type="text" name="noun3" id="noun3">
+      <br>
+	    <button type="button" onclick="formsub()" name="button">Submit</button>
+    </form>
+	</body>
+    <p id="p1"></p>
+<script>
+  var noun1 = document.getElementById('noun1')
+  var noun2 = document.getElementById('noun2')
+  var noun3 = document.getElementById('noun3')
+  var noun4 = document.getElementById('noun4')
+  var p1 = document.getElementById('p1')
+  function formsub(){
+    p1.innerHTML = "A(n) " + noun1.value + " walked up to the lemonade stand and he said to the " + noun4.value + " running the stand, " + noun2.value + " (bum bum bum) got any " + noun3.value + "?";
+  }
+  </script>
+  </html>

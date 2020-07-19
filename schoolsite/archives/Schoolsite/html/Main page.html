@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="..\css\main style.css">
+<link rel="shortcut icon" href="..\media\mainicon.png">
+<title>Schoolsite - a Harrison production</title>
+<script src="../js/javascript.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body id="body" style="overflow:none;background-image: url('image.png');">
+<div id="nogin" style="display:block;">
+  <nav class="mainmenu" style="background-image:url('back.png');  background-repeat:no-repeat;">
+    <ul>
+	<div id="hide">
+      <li><a id="hide" class="hide" href="https://kahoot.it"target="blank">Kahoot</a></li>
+      <li><a id="hide1" class="hide" href="https://quizlet.com/live" target="blank">Quizlet Live</a></li>
+      <li><a id="hide2" class="hide" href="https://classroom.google.com/u/0/h" target="blank">Google classroom</a></li>
+	  </div>
+	  <li><a id="crab1" href="javascript:menu()">Toggle options</a></li>
+
+    </ul>
+    </nav>
+	<div style="position:fixed; z-index:1;">
+	<nav id="menu">
+	 <ul>
+	  <li><a href='javascript:custom()'>Command prompt</a></li>
+      <li><a href="about.html" target="blank">About schoolsite</a></li>
+	 </ul>
+	</nav>
+	</div>
+	  <form action="hello.txt" id="command" style="display:none;">
+	  <input id='input' placeholder='Enter a command'>
+	  </form>
+	  <button style="display:none;" id="button">Submit</button>
+	  <img src="crab.png" id="image" style="margin-left:800px; display:none; border-radius:10px;">
+	  <p id="p" style="display:block;"></p>
+	  </div>
+	<div id="login" style="display:none;">
+	  <center>
+	  <h1 style="margin-top:100px; font-family:arial;">Login - To schoolsite</h1></center>
+      <form style="margin-top:20px; margin-left:44%;">
+      <input id="login" placeholder="username">
+      <br>
+      </form>
+      <center>
+	  <button onclick="submit1()" style="margin-top:30px;">Login</button>
+	  </center>
+	</div>
+</body>
+</html>
