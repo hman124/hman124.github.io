@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+</head>
+<body>
+<script>
+var n = Math.floor(Math.random() * 1001);
+fetch('https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US&nocache=' + n)
+  .then(response => response.json())
+  .then(data => set(data));
+
+const set = (data) => {
+alert(data.url);
+}
+</script>
+</body>
+</html>
