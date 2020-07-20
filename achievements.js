@@ -11,13 +11,14 @@ currentAchievement = seperatedAchievements[i].replace("=achieved", "");
 document.getElementById(currentAchievement).style.backgroundColor = "white";}},
 
 "hasAchievement": (a) => {
+var hasAchievement = false;
 seperatedAchievements = cookies.split("; "); 
-return for(var i = 0; i < seperatedAchievements.length; i++){
+for(var i = 0; i < seperatedAchievements.length; i++){
 currentAchievement = seperatedAchievements[i].replace("=achieved", "");
 if(currentAchievement == "achievement-" + a){
-	return true;
-	break;}}}
-
-};
+	hasAchievement = true;
+	break;}}
+return hasAchievement;
+}};
 
 var clickCount = 0;
