@@ -52,7 +52,7 @@ cookies = cookies.split(";");
 
 for(var i = 0; i < cookies.length; i++){
 currentAchievement = cookies[i].split("=achieved");
-document.getElementsById(currentAchievement[0]).style.color = "blue";
+document.getElementById(currentAchievement[0]).style.color = "blue";
 }}};
 
 var clickCount = 0;
