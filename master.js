@@ -51,8 +51,8 @@ var cookies = document.cookie;
 cookies = cookies.split(";"); 
 
 for(var i = 0; i < cookies.length; i++){
-currentAchievement = cookies[i].split("=achieved");
-document.getElementById(currentAchievement[0]).style.color = "blue";
+currentAchievement = cookies[i].replace("=achieved", "");
+document.getElementById(currentAchievement).style.color = "blue";
 }}};
 
 var clickCount = 0;
