@@ -1,5 +1,11 @@
 //Variables
-var hasAchievement = false, achieveId, storedAchieve = JSON.parse(window.localStorage.getItem("achievements")), achievePage = "https://hman124.ml/achievements";
+var hasAchievement = false, achieveId, achievePage = "https://hman124.ml/achievements";
+
+if(window.localStorage.getItem("achievements") != undefined){
+var storedAchieve = JSON.parse(window.localStorage.getItem("achievements"));}
+//Inserting placeholder text to prevent errors 
+else{
+var storedAchieve = ["a", "b", "c"];}
 
 var achievements = {
 //Give a user an achievement
