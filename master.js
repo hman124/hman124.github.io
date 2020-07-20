@@ -39,20 +39,3 @@ function checkMobile() {
     alert("You are on desktop/Tablet!")
   }
 };
-
-//Acheivements
-var achievements = {
-	"grantAchievement": (a) => {
-	document.cookie = a + "=achieved; expires=Thu, 18 Dec 2038 12:00:00 UTC; path=/ ";		
-	},
-	"checkAchievements": () => {
-var currentAchievement;	
-var cookies = document.cookie;
-cookies = cookies.split("; "); 
-
-for(var i = 0; i < cookies.length; i++){
-currentAchievement = cookies[i].replace("=achieved", "");
-document.getElementById(currentAchievement).style.color = "blue";
-}}};
-
-var clickCount = 0;

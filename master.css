@@ -9,6 +9,7 @@ html, body {
 
 body {
   font-family: arial;
+  max-width:100%;
 }
 
 #container {
@@ -75,4 +76,32 @@ background-color:rgba(204, 204, 204, 0.9);
 
 .popup  a:first-of-type{
 	margin-top:0px;
+}
+
+.achievement{
+	padding:5px;
+	width:220px;
+	margin:5px;
+	display:table;
+	border-style:solid;
+	border-color:black;
+	border-width:2px;
+	border-radius:5px;
+	text-align:center;
+	background-color:#ccc;
+}
+
+.achievement *{
+	color:black;
+}
+
+.achievement h4{
+	border-bottom-style:inset;
+	border-bottom-color:black;
+	border-bottom-width:2px;
+	margin:3px;
+}
+
+.achievement p{
+	font-weight:700;
 }
