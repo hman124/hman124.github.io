@@ -48,7 +48,7 @@ var achievements = {
 	"checkAchievements": () => {
 var currentAchievement;	
 var cookies = document.cookie;
-cookies = cookies.split(";"); 
+cookies = cookies.split("; "); 
 
 for(var i = 0; i < cookies.length; i++){
 currentAchievement = cookies[i].replace("=achieved", "");
