@@ -20,5 +20,3 @@ if(currentAchievement == "achievement-" + a){
 	break;}}
 return hasAchievement;
 }};
-
-var clickCount = 0;
