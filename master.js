@@ -1,3 +1,5 @@
+
+//Popup Script
 var mousex, clickCount = 0, popup = document.getElementById("popup"),
   popupstate = 0;
 
@@ -10,7 +12,6 @@ window.onclick = e => {
   if(clickCount == 100){
 	  if(!achievements.hasAchievement(1)){achievements.grantAchievement(1);}}}
 
-//The main Popup script
 document.getElementsByTagName("a")[1].addEventListener("click", function(event){
 mouseX = event.clientX;
 popup.innerHTML = "<a href=\"achievements\">Achievements</a><a href=\"javascript:checkMobile()\">Check My Browser</a>";

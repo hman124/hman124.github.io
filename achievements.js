@@ -1,22 +1,31 @@
-var currentAchievement, seperatedAchievements, cookies = document.cookie;
+var hasAchievement = false, achieveId, storedAchieve = JSON.parse(window.localStorage.getItem("achievements")), achievePage = "https://hman124.ml/achievements";
 var achievements = {
 
 "grantAchievement": (a) => {
-document.cookie = "achievement-" + a + "=achieved; expires=Thu, 18 Dec 2038 12:00:00 UTC; path=/ ";},
+var updatedList = storedAchieve.push(a);
+window.localStorage.setItem("achievements", updatedList);
+if(window.location.href = achievePage){
+achievements.checkAchievements();
+}},
 
 "checkAchievements": () => {
-seperatedAchievements = cookies.split("; "); 
-for(var i = 0; i < seperatedAchievements.length; i++){
-currentAchievement = seperatedAchievements[i].replace("=achieved", "");
-document.getElementById(currentAchievement).style.backgroundColor = "white";}},
+for(var i = 0; i < storedAchieve.length; i++){
+achieveId = "achievement" + storedAchieve[i];
+document.getElementById(achieveId).style.backgroundColor = "white";}},
 
-"hasAchievement": (a) => {
-var hasAchievement = false;
-seperatedAchievements = cookies.split("; "); 
-for(var i = 0; i < seperatedAchievements.length; i++){
-currentAchievement = seperatedAchievements[i].replace("=achieved", "");
-if(currentAchievement == "achievement-" + a){
-	hasAchievement = true;
-	break;}}
+"hasAchievement": (a) => 
+for(var i = 0; i < storedAchieve.length; i++){
+if(storedAchieve[i] == a){
+hasAchievement = true;
+break;}}
 return hasAchievement;
 }};
+
+/* if (typeof(Storage) !== "undefined") {
+ // Store
+  localStorage.setItem("achievements-" + a, "achieved");
+  // Retrieve
+  document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+} */
