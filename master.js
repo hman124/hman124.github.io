@@ -41,4 +41,18 @@ function checkMobile() {
 };
 
 //Acheivements
+var achievements = {
+	"grantAchievement": (a) => {
+	document.cookie = a + "=achieved; expires=Thu, 18 Dec 2038 12:00:00 UTC; path=/ ";		
+	},
+	"checkAchievements": () => {
+var currentAchievement;	
+var cookies = document.cookie;
+cookies = cookies.split(";"); 
+
+for(var i = 0; i < cookies.length; i++){
+currentAchievement = cookies[i].split("=achieved");
+document.getElementsById(currentAchievement[0]).style.color = "blue";
+}}};
+
 var clickCount = 0;

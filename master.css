@@ -24,7 +24,7 @@ border-bottom-style:inset;
 height:40px;
 line-height:40px;
 padding-left:10px;
-background-color:#ccc;
+background-color:rgba(204, 204, 204, 0.9);
 }
 
 .top-nav ul {
