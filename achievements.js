@@ -21,5 +21,3 @@ if(currentAchievement == "achievement-" + a){
 };
 
 var clickCount = 0;
-
-achievements.checkAchievements();
