@@ -13,7 +13,7 @@ for(var i = 0; i < storedAchieve.length; i++){
 achieveId = "achievement" + storedAchieve[i];
 document.getElementById(achieveId).style.backgroundColor = "white";}},
 
-"hasAchievement": (a) => 
+"hasAchievement": (a) => {
 for(var i = 0; i < storedAchieve.length; i++){
 if(storedAchieve[i] == a){
 hasAchievement = true;
