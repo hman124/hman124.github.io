@@ -15,7 +15,7 @@ window.localStorage.setItem("achievements", "[" + a + "]");}
 else{
 var updatedList = storedAchieve.push(a);
 window.localStorage.setItem("achievements", updatedList);
-if(window.location.href = achievePage){
+if(window.location.href == achievePage){
 achievements.checkAchievements();
 }}},
 
