@@ -22,13 +22,13 @@ var achievements = {
         }
       }
       if (hasAchievement) {
-        return;
+        return "You Already Have That Achievement!";
       }
 
 
       //Set The Local Storage.
-      var updatedList = storedAchieve.push(a);
-      window.localStorage.setItem("achievements", "[" + updatedList + "]");
+     storedAchieve.push(a);
+      window.localStorage.setItem("achievements", "[" + storedAchieve + "]");
       if (window.location.href == achievePage) {
         achievements.checkAchievements();
       }
