@@ -22,7 +22,7 @@ document.getElementsByTagName("a")[1].addEventListener("click", function(event) 
 document.getElementsByTagName("a")[0].addEventListener("click", function(event) {
   mouseX = event.clientX;
   popup.style.display = "block";
-  popup.innerHTML = "<a href=\"link/\">Custom Loading Screen Maker</a><a href=\"mailSend\">Email Sender</a><a href=\"schoolsite/main/\">Schoolsite</a>";
+  popup.innerHTML = "<a href=\"link/\">Custom Loading Screen Maker</a><a href=\"email-sender\">Email Sender</a><a href=\"schoolsite/main/\">Schoolsite</a>";
   popup.style.left = mouseX + "px";
   popupstate = 1;
 });
