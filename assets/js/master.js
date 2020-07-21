@@ -13,7 +13,6 @@ window.onclick = e => {
       achievements.grantAchievement(1);
     }
   }
-}
 
 document.getElementsByTagName("a")[1].addEventListener("click", function(event) {
   mouseX = event.clientX;
