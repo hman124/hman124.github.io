@@ -28,8 +28,7 @@ var achievements = {
 
       //Set The Local Storage.
       var updatedList = storedAchieve.push(a);
-      updatedList = updatedList.toString();
-      window.localStorage.setItem("achievements", updatedList);
+      window.localStorage.setItem("achievements", "[" + updatedList + "]");
       if (window.location.href == achievePage) {
         achievements.checkAchievements();
       }
