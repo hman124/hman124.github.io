@@ -1,3 +1,3 @@
 # Hman124 #
 
-I don't have very many sites on here, but that should change soon enough!
+I focus on making cool new things, and doing so I learn and make even cooler things :)
