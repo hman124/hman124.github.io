@@ -28,12 +28,13 @@ var achievements = {
 
       //Set The Local Storage.
       var updatedList = storedAchieve.push(a);
+      updated = updated.toString();
       window.localStorage.setItem("achievements", updatedList);
       if (window.location.href == achievePage) {
         achievements.checkAchievements();
       }
     } else {
-      //If the  is not already set, create it.
+      //If the local storage var is not already set, create it.
       window.localStorage.setItem("achievements", "[" + a + "]");
     }
   },
