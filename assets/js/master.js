@@ -8,12 +8,6 @@ window.onclick = e => {
     document.getElementById("popup").style.display = "none";
     popupstate = 0;
   }
-  clickCount++;
-  if (clickCount == 100) {
-    if (!achievements.hasAchievement(1)) {
-      achievements.grantAchievement(1);
-    }
-  }
 }
 
 document.getElementsByTagName("a")[1].addEventListener("click", function(event) {

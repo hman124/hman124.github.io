@@ -1,5 +1,5 @@
 //Variables
-var hasAchievement = false,
+var hasAchievement = false, clickCount,
   storedAchieve, achieveId, achievePage = "https://hman124.ml/achievements";
 //Inserting placeholder text to prevent errors
 
@@ -50,3 +50,32 @@ var achievements = {
     }
   }
 };
+
+//12:00 PM Achievement
+var date = new Date();
+if(date.getHours == "12"){
+	achievements.grantAchievement(4);}
+
+//100x click achievement
+window.onclick = () => {
+	 clickCount++;
+  if (clickCount == 100) {
+      achievements.grantAchievement(1);
+    }
+  }
+  
+//Secret TextBox Concept
+//If A user Types A certian word, it will appear.
+
+const word = ["h", "t", "m", "l", "5"];
+var wordIndex = 0;
+window.onkeypress = (event) => {
+	var key = event.key;
+if(word[wordIndex] == key.toLowerCase()){
+wordIndex++;
+if(wordIndex == word.length){
+	var cmdPrompt = document.createElement("TEXTAREA");
+document.getElementById("container").appendChild(cmdPrompt);
+}}
+else{
+wordIndex = 0;}}
