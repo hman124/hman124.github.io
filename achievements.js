@@ -1,11 +1,9 @@
 //Variables
-var hasAchievement = false, achieveId, achievePage = "https://hman124.ml/achievements";
+var hasAchievement = false, storedArchState = true, storedAchieve = ["a", "b", "c"], achieveId, achievePage = "https://hman124.ml/achievements";
 
 if(window.localStorage.getItem("achievements") != undefined){
-var storedAchieve = JSON.parse(window.localStorage.getItem("achievements"));}
+storedArchState = false;}
 //Inserting placeholder text to prevent errors 
-else{
-var storedAchieve = ["a", "b", "c"];}
 
 var achievements = {
 //Give a user an achievement
@@ -29,20 +27,11 @@ document.getElementById(achieveId).style.backgroundColor = "white";}},
 
 //Check To See if an achievement is set
 "hasAchievement": (a) => {
+if(storedArchState){
 for(var i = 0; i < storedAchieve.length; i++){
 if(storedAchieve[i] == a){
 hasAchievement = true;
 break;}}
-return hasAchievement;
-}};
-
-
-//Sample Script I used 
-/* if (typeof(Storage) !== "undefined") {
- // Store
-  localStorage.setItem("achievements-" + a, "achieved");
-  // Retrieve
-  document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-} else {
-  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-} */
+return hasAchievement;}
+else{
+return false;}}};
