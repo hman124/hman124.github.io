@@ -10,33 +10,31 @@ try {
 }
 
 var achievements = {
-  //Give a user an achievement
+//Give a user an achievement
   "grantAchievement": (a) => {
 
-
-    //Check If The Achievement has already been added
-    for (var i = 0; i < storedAchieve.length; i++) {
-      if (storedAchieve[i] == a) {
-        hasAchievement = false;
-        break;
+    if (storedAchieve) {
+      //Check If The Achievement has already been added
+      for (var i = 0; i < storedAchieve.length; i++) {
+        if (storedAchieve[i] == a) {
+          hasAchievement = false;
+          break;
+        }
       }
-    }
-    if (hasAchievement) {
-      return;
-    }
+      if (hasAchievement) {
+        return;
+      }
 
 
-    //Check to see if achievements exist on the client's device. If it doesn't, set it up.
-    if (!storedAchieve) {
-      window.localStorage.setItem("achievements", "[" + a + "]");
-    }
-    //If it does, just update it.
-    else {
+      //Set The Local Storage.
       var updatedList = storedAchieve.push(a);
       window.localStorage.setItem("achievements", updatedList);
       if (window.location.href == achievePage) {
         achievements.checkAchievements();
       }
+    } else {
+      //If the  is not already set, create it.
+      window.localStorage.setItem("achievements", "[" + a + "]");
     }
   },
 
