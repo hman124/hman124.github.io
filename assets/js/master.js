@@ -10,7 +10,6 @@ window.onclick = e => {
   }
   clickCount++;
   if (clickCount == 100) {
-    if (!achievements.hasAchievement(1)) {
       achievements.grantAchievement(1);
     }
   }
