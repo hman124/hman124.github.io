@@ -2,36 +2,55 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    if(window.location.href == "https://hman124.ml/404.html"){
-    window.location.replace("../");
-    }
-  </script>
-  <title>404 Error</title>
-  <style>
-    body{
-    font-family:arial;}
-    a{
-    color:blue;
-      font-weight:700;}
-  </style>
+  <meta name="author" content="Hman124">
+  <meta name="theme-color" content="#4b48f7">
+  <meta name="description" content="A Digital Library of all my web creations">
+  <link rel="stylesheet" href="master.css">
+  <title>Hman124 - 404 Error</title>
 </head>
 <body>
-<h1>404 Error</h1>
-<hr>
-<p>There's Nothing Here, It may Have Been Deleted.</p>
-  <ul>
-    <li>
-      <a href="https://hman124.ml">Home Page</a>
-    </li>
-    <li>
-      <a href="https://hman124.ml/mailSend">Email Sender</a>  
-    </li>
-    <li>
-      <a href="https://hman124.ml/link/">Loading Screen Maker</a>
-    </li>
-  </ul>
-  <script src="https://hman124.ml/achievements.js"></script>
-  <script>if(!achievements.hasAchievement(2)){achievements.grantAchievement(2);}</script>
+  <div id="container">
+    <!-- Menu -->
+    <div class="top-nav">
+      <ul>
+        <li>
+          <h3>Hman124</h3>
+        </li>
+        <li>&bull;</li>
+        <li><a href="javascript:void(0);">Projects</a></li>
+        <li>&bull;</li>
+        <li><a href="javascript:void(0);">Random Stuff</a></li>
+      </ul>
+    </div>
+    <!-- Menu Popup -->
+    <div id="popup" class="popup">
+    </div>
+    <h1>404 Error</h1>
+    <hr>
+    <p>There's Nothing Here, It may Have Been Deleted.</p>
+    <ul>
+      <li>
+        <a href="https://hman124.ml">Home Page</a>
+      </li>
+      <li>
+        <a href="https://hman124.ml/mailSend">Email Sender</a>
+      </li>
+      <li>
+        <a href="https://hman124.ml/link/">Loading Screen Maker</a>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- Main Script For Popup And General Scripts -->
+  <script src="master.js"></script>
+  <!-- Achievements -->
+  <script src="achievements.js"></script>
+  <script>
+    achievements.grantAchievement(2);
+    if (window.location.href == "https://hman124.ml/404.html") {
+      window.location.replace("../");
+    }
+  </script>
 </body>
 </html>

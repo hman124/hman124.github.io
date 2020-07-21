@@ -1,11 +1,11 @@
-form input, form textarea{
-margin-left:auto;
-margin-right:auto;
-margin-top:10px;
+form input, form textarea {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 }
 
-form{
-display:table;
-text-align:center;
- margin:auto;
+form {
+  display: table;
+  text-align: center;
+  margin: auto;
 }

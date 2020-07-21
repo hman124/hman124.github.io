@@ -1,23 +1,27 @@
-
 //Popup Script
-var mousex, clickCount = 0, popup = document.getElementById("popup"),
+var mousex, clickCount = 0,
+  popup = document.getElementById("popup"),
   popupstate = 0;
 
 window.onclick = e => {
- if(e.target != document.getElementById("popup") && popupstate == 1 && e.target != document.getElementsByTagName("a")[0] && e.target != document.getElementsByTagName("a")[1]){
-	  document.getElementById("popup").style.display = "none";
-  popupstate = 0;
+  if (e.target != document.getElementById("popup") && popupstate == 1 && e.target != document.getElementsByTagName("a")[0] && e.target != document.getElementsByTagName("a")[1]) {
+    document.getElementById("popup").style.display = "none";
+    popupstate = 0;
   }
   clickCount++;
-  if(clickCount == 100){
-	  if(!achievements.hasAchievement(1)){achievements.grantAchievement(1);}}}
+  if (clickCount == 100) {
+    if (!achievements.hasAchievement(1)) {
+      achievements.grantAchievement(1);
+    }
+  }
+}
 
-document.getElementsByTagName("a")[1].addEventListener("click", function(event){
-mouseX = event.clientX;
-popup.innerHTML = "<a href=\"achievements\">Achievements</a><a href=\"javascript:checkMobile()\">Check My Browser</a>";
-popup.style.display = "block";
-popup.style.left = mouseX + "px";
-popupstate = 1;
+document.getElementsByTagName("a")[1].addEventListener("click", function(event) {
+  mouseX = event.clientX;
+  popup.innerHTML = "<a href=\"achievements\">Achievements</a><a href=\"javascript:checkMobile()\">Check My Browser</a>";
+  popup.style.display = "block";
+  popup.style.left = mouseX + "px";
+  popupstate = 1;
 });
 
 
