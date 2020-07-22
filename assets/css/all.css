@@ -13,7 +13,13 @@ body {
 }
 
 h1{
+  margin-top:10px;
 	color:#444444;
+}
+
+h3{
+  margin-top:10px;
+  color:#1e1e1e;
 }
 
 a {
