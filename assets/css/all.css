@@ -11,13 +11,12 @@ body {
   font-family: arial;
   max-width: 100%;
 }
-
-h1{
+.title{
   margin-top:10px;
 	color:#444444;
 }
 
-h3{
+.heading{
   margin-top:10px;
   color:#1e1e1e;
 }
