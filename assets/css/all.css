@@ -11,14 +11,20 @@ body {
   font-family: arial;
   max-width: 100%;
 }
+
+.container{
+	padding-left:40px;
+}
+
 .title{
   margin-top:10px;
-	color:#444444;
+	color:#1e1e1e;
 }
 
 .heading{
   margin-top:10px;
-  color:#1e1e1e;
+  margin-bottom:10px;
+  color:#444444;
 }
 
 a {
