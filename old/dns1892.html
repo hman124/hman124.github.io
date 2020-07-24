@@ -2,41 +2,32 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    if (window.location.href == "https://hman124.ml/404.html") {
-      window.location.replace("../");
-    }
-  </script>
-  <title>Achievement Unlocked</title>
-  <style>
-    body {
-      font-family: arial;
-    }
-
-    a {
-      color: blue;
-      font-weight: 700;
-    }
-  </style>
+  <meta name="theme-color" content="#00b3ff">
+<link rel="stylesheet" href="assets/css/all.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <title>You are a DNS master - Hman124</title>
 </head>
 <body>
-<div class="top-nav">
+<nav class="top-nav">
       <ul>
         <li>
-          <h3>Hman124</h3>
+          <h3><a href="./">Hman124</a></h3>
         </li>
         <li>&bull;</li>
         <li><a href="javascript:void(0);">Projects</a></li>
         <li>&bull;</li>
         <li><a href="javascript:void(0);">Random Stuff</a></li>
       </ul>
-    </div>
+    </nav>
     <!-- Menu Popup -->
     <div id="popup" class="popup">
     </div>
-  <h1>You Are A DNS Master!</h1>
+<div class="container">
+  <h1 class="title">You Are A DNS Master!</h1>
   <hr>
-  <a href="https://hman124.ml/achievements">View Your Achievements</a>
+  <br>
+  <a href="achievements">View Your Achievements</a>
+  </div>
   <script src="assets/js/achievements.js"></script>
   <script>
       achievements.grantAchievement(3);

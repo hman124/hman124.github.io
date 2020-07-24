@@ -3,18 +3,22 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Hman124">
-  <meta name="theme-color" content="#4b48f7">
+  <meta name="theme-color" content="#00b3ff">
   <meta name="description" content="A Digital Library of all my web creations">
   <meta charset="utf-8">
-  <link rel="stylesheet" href="assets/css/sendMail.css">
-  <link rel="stylesheet" href="assets/css/all.css">
-  <link rel="stylesheet" href="assets/css/menu.css">
-  <title>MailSend - A PHPMailer Project</title>
+  <link rel="stylesheet" href="../assets/css/all.css">
+  <link rel="stylesheet" href="../assets/css/menu.css">
+  <title>MailSend - A PHPMailer Project - Hman124</title>
+  <style>
+  form *{
+  margin-top:10px;
+  font-size:15px;
+  }
+  </style>
 </head>
 
 <body>
-  <div id="container">
-    <div class="top-nav">
+    <nav class="top-nav">
       <ul>
         <li>
           <h3>Hman124</h3>
@@ -24,10 +28,14 @@
         <li>&bull;</li>
         <li><a href="javascript:void(0);">Random Stuff</a></li>
       </ul>
-    </div>
+    </nav>
     <div id="popup" class="popup">
     </div>
-    <form action="https://api.hman124.ml/tools/email_catch.php" method="post">
+   <div class="container">
+<h1 class="title">Email Sender</h1>   
+<h3 class="heading">Easily send emails to anyone with an email address!</h3>
+<hr>   
+   <form action="https://api.hman124.ml/tools/email_catch.php" method="post">
       <input type="text" name="name" placeholder="Your Name" required>
       <br>
       <input type="email" name="email" placeholder="Your Email" required>
@@ -43,8 +51,8 @@
       <input type="submit" name="submit" value="Send">
     </form>
   </div>
-  <script src="assets/js/master.js"></script>
+  <script src="../assets/js/master.js"></script>
   <!-- Achievements -->
-  <script src="assets/js/achievements.js"></script>
+  <script src="`../assets/js/achievements.js"></script>
 </body>
 </html>

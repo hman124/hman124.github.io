@@ -39,3 +39,7 @@ a:hover {
 p{
 	color:#292929;
 }
+
+ul:not(.top-nav-ul){
+	padding-left:18px;
+}

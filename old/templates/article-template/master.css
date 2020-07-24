@@ -27,6 +27,7 @@ body{
   position:fixed;
   top:0;
   left:0;
+  /* Background color for IE */
   background-color:#03fcfc;
 }
 
@@ -64,7 +65,7 @@ body{
 }
 
 .contents{
-/* The Article/Blog Itself */
+/* The Article Itself */
   position:absolute;
   top:30%;
   min-width: 100%;
@@ -74,4 +75,17 @@ body{
   background-color:white;
   padding: 10px;
   box-sizing:border-box;
+}
+
+.heading{
+	padding-top:15px;
+	border-top-style:solid;
+	border-top-color:black;
+	border-top-width:2px;
+	margin-top:15px;
+margin-bottom:5px;
+}
+
+#author::before{
+	content:"Author: ";
 }
