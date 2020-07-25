@@ -1,8 +1,10 @@
 //Achievements.js - Harrison Steed - Designed And Built For Hman124.ml
 
 //Variables
-var hasAchievement = false, clickCount = 0, storedAchieve, achieveId;
-  
+var hasAchievement = false,
+  clickCount = 0,
+  storedAchieve, achieveId;
+
 //Seeing if the local storage has been set
 try {
   var storedAchieve = JSON.parse(window.localStorage.getItem("achievements"));
@@ -39,22 +41,21 @@ var achievements = {
     } else {
       //If the local storage var is not already set, create it.
       window.localStorage.setItem("achievements", "[" + a + "]");
-        achievements.checkAchievements();
-	}
+      achievements.checkAchievements();
+    }
   },
 
   //Update the achievements page
   "checkAchievements": () => {
     if (storedAchieve) {
-		try{
-      for (var i = 0; i < storedAchieve.length; i++) {
-        achieveId = "achievement-" + storedAchieve[i];
-        document.getElementById(achieveId).style.backgroundColor = "white";
-		}
-	   }
-		catch(e){
-			return;
-	 }
+      try {
+        for (var i = 0; i < storedAchieve.length; i++) {
+          achieveId = "achievement-" + storedAchieve[i];
+          document.getElementById(achieveId).style.backgroundColor = "white";
+        }
+      } catch (e) {
+        return;
+      }
     } else {
       return;
     }
@@ -86,7 +87,7 @@ window.onkeypress = (event) => {
     wordIndex++;
     if (wordIndex == word.length) {
       var cmdPrompt = document.createElement("TEXTAREA");
-      document.getElementById("container").appendChild(cmdPrompt);
+      document.getElementsByClassName("container")[0].appendChild(cmdPrompt);
     }
   } else {
     if (!cmdPrompt) {
@@ -116,7 +117,7 @@ const isValid = (achievement) => {
       return false;
     }
   } else if (achievement == 4) {
-    var date = new date();
+    var date = new Date();
     if (date.getHours() == "12" && date.getMinutes() == "00") {
       return true;
     } else {
