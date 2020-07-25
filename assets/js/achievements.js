@@ -1,7 +1,7 @@
 //Achievements.js - Harrison Steed - Designed And Built For Hman124.ml
 
 //Variables
-var hasAchievement = false, clickCount,
+var hasAchievement = false, clickCount = 0,
   storedAchieve, achieveId, achievePage = "https://hman124.ml/achievements/";
 //Inserting placeholder text to prevent errors
 
