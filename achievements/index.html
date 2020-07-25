@@ -41,7 +41,7 @@
   <script src="/assets/js/inject.js"></script>
     <script>
     achievements.checkAchievements();
-	document.getElementById("clearAchievements").addEventListener("click", achievements.clearAchievements());
+	document.getElementById("clearAchievements").addEventListener("click", () => {achievements.clearAchievements()});
   </script>
 </body>
 </html>
