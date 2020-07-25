@@ -1,6 +1,8 @@
+//Achievements.js - Harrison Steed - Designed And Built For Hman124.ml
+
 //Variables
 var hasAchievement = false, clickCount,
-  storedAchieve, achieveId, achievePage = "https://hman124.ml/achievements";
+  storedAchieve, achieveId, achievePage = "https://hman124.ml/achievements/";
 //Inserting placeholder text to prevent errors
 
 try {
@@ -13,9 +15,8 @@ var achievements = {
 //Give a user an achievement
   "grantAchievement": (a) => {
 if(document.currentScript == null){
-	alert(document.currentScript)//.remove();
-	return "Nice try";}
-	
+	return "Nice try";
+	document.currentScript.remove();}	
     if (storedAchieve) {
       //Check If The Achievement has already been added
       for (var i = 0; i < storedAchieve.length; i++) {
@@ -60,7 +61,7 @@ if(document.currentScript == null){
 
 //12:00 PM Achievement
 var date = new Date();
-if(date.getHours == "12"){
+if(date.getHours == "7" /* && date.getMinutes == "00" */ ){
 	achievements.grantAchievement(4);}
 
 //100x click achievement
@@ -74,7 +75,7 @@ window.onclick = () => {
 //Secret TextBox Concept
 //If A user Types A certian word, it will appear.
 
-const word = ["h", "t", "m", "l", "5"];
+const word = ["t", "e", "s", "t"];
 var wordIndex = 0;
 window.onkeypress = (event) => {
 	var key = event.key;
@@ -85,4 +86,5 @@ if(wordIndex == word.length){
 document.getElementById("container").appendChild(cmdPrompt);
 }}
 else{
-wordIndex = 0;}}
+if(!cmdPrompt){
+wordIndex = 0;}}}
