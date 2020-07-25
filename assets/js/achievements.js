@@ -20,7 +20,7 @@ if(document.currentScript == null){
       //Check If The Achievement has already been added
       for (var i = 0; i < storedAchieve.length; i++) {
         if (storedAchieve[i] == a) {
-          hasAchievement = false;
+          hasAchievement = true;
           break;
         }
       }
@@ -39,6 +39,9 @@ if(document.currentScript == null){
     } else {
       //If the local storage var is not already set, create it.
       window.localStorage.setItem("achievements", "[" + a + "]");
+	   if (window.location.href == achievePage) {
+        achievements.checkAchievements();
+      }
     }
   },
 
