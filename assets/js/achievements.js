@@ -12,7 +12,10 @@ try {
 var achievements = {
 //Give a user an achievement
   "grantAchievement": (a) => {
-
+if(document.currentScript == null){
+	alert(document.currentScript)//.remove();
+	return "Nice try";}
+	
     if (storedAchieve) {
       //Check If The Achievement has already been added
       for (var i = 0; i < storedAchieve.length; i++) {
