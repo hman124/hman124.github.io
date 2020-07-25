@@ -62,6 +62,7 @@ var achievements = {
   "clearAchievements": () => {
 	  if (confirm("Are you sure you want to clear all achievements?")){
 		  window.localStorage.removeItem("achievements");
+		  window.location.reload();
    }
   }
 };
