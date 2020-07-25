@@ -1,12 +1,9 @@
 //Achievements.js - Harrison Steed - Designed And Built For Hman124.ml
 
 //Variables
-var hasAchievement = false,
-  clickCount = 0,
-  storedAchieve, achieveId, achievePage = "https://hman124.ml/achievements/",
-  currentScript = document.currentScript;
-//Inserting placeholder text to prevent errors
-
+var hasAchievement = false, clickCount = 0, storedAchieve, achieveId;
+  
+//Seeing if the local storage has been set
 try {
   var storedAchieve = JSON.parse(window.localStorage.getItem("achievements"));
 } catch {
@@ -16,7 +13,7 @@ try {
 var achievements = {
   //Give a user an achievement
   "grantAchievement": (a) => {
-    if (isValid(a)) {
+    if (!isValid(a)) {
       return "Nice try";
     }
     if (storedAchieve) {
@@ -42,19 +39,22 @@ var achievements = {
     } else {
       //If the local storage var is not already set, create it.
       window.localStorage.setItem("achievements", "[" + a + "]");
-      if (window.location.href == achievePage) {
         achievements.checkAchievements();
-      }
-    }
+	}
   },
 
   //Update the achievements page
   "checkAchievements": () => {
     if (storedAchieve) {
+		try{
       for (var i = 0; i < storedAchieve.length; i++) {
         achieveId = "achievement-" + storedAchieve[i];
         document.getElementById(achieveId).style.backgroundColor = "white";
-      }
+		}
+	   }
+		catch(e){
+			return;
+	 }
     } else {
       return;
     }
@@ -95,7 +95,7 @@ window.onkeypress = (event) => {
   }
 }
 
-//Check function - validates all of the achievements to prevent false grents from the console
+//Check function - validates all of the achievements to prevent false grants from the console
 const isValid = (achievement) => {
   if (achievement == 1) {
     if (clickCount == 100 || clickCount > 100) {
