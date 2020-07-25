@@ -5,8 +5,8 @@ nav {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  border-radius: 5px;
-  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 25%, rgba(0,212,255,1) 100%);
+  border-radius: 5px;background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 25%, rgba(0,169,203,1) 100%);
   text-align: center;
   line-height: 40px;
   margin-bottom:20px;
@@ -23,7 +23,7 @@ nav ul li:first-of-type {
 	margin-left: -10px;
 }
 
-nav ul li a {
+nav ul li a:not(nav ul li h3 a){
   font-weight: 700;
   color: white;
 }
