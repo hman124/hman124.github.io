@@ -14,8 +14,8 @@ try {
 var achievements = {
 //Give a user an achievement
   "grantAchievement": (a) => {
-if(document.currentScript == null){
-	console.log("DEV: Achievement Brute Force Grant Blocked");
+if(document.currentScript === null){
+	console.log("DEV: Achievement Brute Force Grant Blocked From Script " + document.currentScript.src);
 	return "Nice try";
 	document.currentScript.remove();}	
     if (storedAchieve) {
