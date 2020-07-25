@@ -1,26 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#00b3ff">
-  <link rel="stylesheet" href="https://hman124.ml/assets/css/all.css">
-  <link rel="stylesheet" href="https://hman124.ml/assets/css/menu.css">
   <title>404 Error - Hman124</title>
 </head>
 <body>
-    <nav class="top-nav">
-      <ul>
-	  <li><h3><a href="./">Hman124</a></h3></li>
-	  <li>&bull;</li>
-        <li><a href="javascript:void(0);">Projects</a></li>
-        <li>&bull;</li>
-        <li><a href="javascript:void(0);">Random Stuff</a></li>
-      </ul>
+  <div class="container">
+    <nav id="top-nav">
+        <img src="assets/media/bouncing.gif">
     </nav>
-    <!-- Menu Popup -->
-    <div id="popup" class="popup">
-    </div>
-	<div class="container">
     <h1>404 Error</h1>
     <hr>
     <p>There's Nothing Here, It may Have Been Deleted.</p>
@@ -35,16 +22,15 @@
         <a href="https://hman124.ml/link/">Loading Screen Maker</a>
       </li>
     </ul>
-	</div>
-  <!-- Main Script For Popup And General Scripts -->
-  <script src="https://hman124.ml/assets/js/master.js"></script>
-  <!-- Achievements Library-->
-   <script src="https://hman124.ml/assets/js/achievements.js"></script>
-   <script>
-   //Grant Achievement For Getting A 404 Error
+  </div>
+  <script src="/assets/jquery/js/master.js"></script>
+  <script src="/assets/js/inject.js"></script>
+  <script>
+    //Grant Achievement For Getting A 404 Error
     achievements.grantAchievement(2);
     if (window.location.href == "https://hman124.ml/404.html") {
-      window.location.replace("../");}
+      window.location.replace("../");
+    }
   </script>
 </body>
 </html>

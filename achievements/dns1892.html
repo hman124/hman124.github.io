@@ -1,36 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#00b3ff">
-<link rel="stylesheet" href="assets/css/all.css">
-  <link rel="stylesheet" href="assets/css/menu.css">
-  <title>You are a DNS master - Hman124</title>
+  <title>Achievement Earned - Hman124</title>
 </head>
 <body>
-<nav class="top-nav">
-      <ul>
-        <li>
-          <h3><a href="./">Hman124</a></h3>
-        </li>
-        <li>&bull;</li>
-        <li><a href="javascript:void(0);">Projects</a></li>
-        <li>&bull;</li>
-        <li><a href="javascript:void(0);">Random Stuff</a></li>
-      </ul>
+  <div class="container">
+    <nav id="top-nav">
     </nav>
     <!-- Menu Popup -->
     <div id="popup" class="popup">
     </div>
-<div class="container">
-  <h1 class="title">You Are A DNS Master!</h1>
-  <hr>
-  <br>
-  <a href="achievements">View Your Achievements</a>
+    <h1 class="title">You Are A DNS Master!</h1>
+    <hr>
+    <br>
+    <a href="achievements">View Your Achievements</a>
   </div>
-  <script src="assets/js/achievements.js"></script>
+  <script src="/assets/jquery/js/master.js"></script>
+  <script src="/assets/js/inject.js"></script>
   <script>
-      achievements.grantAchievement(3);
+    achievements.grantAchievement(3);
   </script>
 </body>
 </html>
