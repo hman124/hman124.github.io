@@ -1,9 +1,7 @@
-//Achievements.js - Harrison Steed - Designed And Built For Hman124.ml
+//Achievements.js - Harrison Steed
 
 //Variables
-var hasAchievement = false,
-  clickCount = 0,
-  storedAchieve, achieveId;
+var hasAchievement = false, clickCount = 0, storedAchieve, achieveId;
 
 //Seeing if the local storage has been set
 try {
@@ -15,9 +13,11 @@ try {
 var achievements = {
   //Give a user an achievement
   "grantAchievement": (a) => {
-    if (!isValid(a)) {
+    if (!achievements.isValid(a)) {
       return "Nice try";
+
     }
+
     if (storedAchieve) {
       //Check If The Achievement has already been added
       for (var i = 0; i < storedAchieve.length; i++) {
@@ -35,7 +35,7 @@ var achievements = {
       storedAchieve.push(a);
       var stringList = storedAchieve.toString()
       window.localStorage.setItem("achievements", "[" + stringList + "]");
-        achievements.checkAchievements();
+      achievements.checkAchievements();
     } else {
       //If the local storage var is not already set, create it.
       window.localStorage.setItem("achievements", "[" + a + "]");
@@ -58,12 +58,29 @@ var achievements = {
       return;
     }
   },
-  
+
+  //Clear The achievements if a user clicks the link at the bottom of the achievements page
   "clearAchievements": () => {
-	  if (confirm("Are you sure you want to clear all achievements?")){
-		  window.localStorage.removeItem("achievements");
-		  window.location.reload();
-   }
+    if (confirm("Are you sure you want to clear all achievements?")) {
+      window.localStorage.removeItem("achievements");
+      window.location.reload();
+    }
+  },
+
+  //Determine if an achievement is eligible to be granted. If not, it must be from the console
+  "isValid": (achievement) => {
+    var date = new Date();
+    if (achievement == 1 && clickCount == 100 || clickCount > 100) {
+      return true;
+    } else if (window.location.href != "https://hman124.ml/" && window.location.href != "https://hman124.ml/achievements/" && achievement == 2) {
+      return true;
+    } else if (window.location.href == "https://hman124.ml/achievements/dns1892" && achievement == 3) {
+      return true;
+    } else if (achievement == 4 && date.getHours() == "12" && date.getMinutes() == "00") {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
 
@@ -79,7 +96,7 @@ window.onclick = () => {
   if (clickCount == 100) {
     achievements.grantAchievement(1);
   }
-}
+};
 
 //Secret TextBox Concept
 //If a user Types a certian word, it will appear.
@@ -100,33 +117,3 @@ window.onkeypress = (event) => {
     }
   }
 }
-
-//Check function - validates all of the achievements to prevent false grants from the console
-const isValid = (achievement) => {
-  if (achievement == 1) {
-    if (clickCount == 100 || clickCount > 100) {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (achievement == 2) {
-    if (window.location.href != "https://hman124.ml/" && window.location.href != "https://hman124.ml/achievements/") {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (achievement == 3) {
-    if (window.location.href == "https://hman124.ml/achievements/dns1892") {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (achievement == 4) {
-    var date = new Date();
-    if (date.getHours() == "12" && date.getMinutes() == "00") {
-      return true;
-    } else {
-      return false;
-    }
-  }
-};
