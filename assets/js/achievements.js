@@ -1,8 +1,7 @@
 //Achievements.js - Harrison Steed - Designed And Built For Hman124.ml
 
 //Variables
-var hasAchievement = false, clickCount = 0,
-  storedAchieve, achieveId, achievePage = "https://hman124.ml/achievements/";
+var hasAchievement = false, clickCount = 0, storedAchieve, achieveId, achievePage = "https://hman124.ml/achievements/", currentScript = document.currentScript;
 //Inserting placeholder text to prevent errors
 
 try {
@@ -14,8 +13,7 @@ try {
 var achievements = {
 //Give a user an achievement
   "grantAchievement": (a) => {
-if(document.currentScript === null){
-	console.log("DEV: Achievement Brute Force Grant Blocked From Script " + document.currentScript.src);
+if(currentScript === null){
 	return "Nice try";
 	document.currentScript.remove();}	
     if (storedAchieve) {
