@@ -23,7 +23,7 @@ nav ul li:first-of-type {
 	margin-left: -10px;
 }
 
-nav ul li a:not(nav ul li h3 a){
+nav ul li a{
   font-weight: 700;
   color: white;
 }
