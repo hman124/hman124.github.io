@@ -34,13 +34,14 @@
         <h4>Timely Manners</h4>
         <p>View This Page At Exactly 12:00 PM</p>
       </div>
-<a href="achievements.clearAchievements()">Clear Achievements</a>  
+<a href="javascript:void(0)">Clear Achievements</a>  
   </div>
 	</div>
   <script src="/assets/jquery/js/master.js"></script>
   <script src="/assets/js/inject.js"></script>
     <script>
     achievements.checkAchievements();
+	document.getElementsByTagName("a")[0].addEventListener("click", achievements.clearAchievements());
   </script>
 </body>
 </html>
