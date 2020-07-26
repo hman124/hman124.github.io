@@ -40,7 +40,7 @@ function checkMobile() {
 };
 
 
-function mobileOptim() => {
+function mobileOptim(){
 	if($("#top-nav").css("height") != "41px" && checkMobile()){
 	$("#top-nav *").css("padding", "0px"); 
 	$("#top-nav").css("text-align", "center");
