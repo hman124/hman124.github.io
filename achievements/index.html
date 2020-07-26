@@ -3,6 +3,8 @@
 <head>
   <link rel="stylesheet" href="/assets/css/achievements.css">
   <title>Achievements - Hman124</title>
+  <script src="/assets/jquery/js/master.js"></script>
+  <script src="/assets/js/inject.js"></script>
 </head>
 <body>
   <div class="container">
@@ -37,8 +39,6 @@
 <a id="clearAchievements" href="javascript:void(0)">Clear Achievements</a>  
   </div>
 	</div>
-  <script src="/assets/jquery/js/master.js"></script>
-  <script src="/assets/js/inject.js"></script>
     <script>
     achievements.checkAchievements();
 	document.getElementById("clearAchievements").addEventListener("click", () => {achievements.clearAchievements()});
