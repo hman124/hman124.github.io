@@ -44,6 +44,8 @@ function mobileOptim(){
 	if($("#top-nav").css("height") != "41px" && checkMobile()){
 	$("#top-nav *").css("padding", "0px"); 
 	$("#top-nav").css("text-align", "center");
-	$("#top-nav ul li").css("display", "block");}
-}
+	$("#top-nav ul li").css("display", "block");
+	$(".container").css("margin-left", "10px");
+	$(".container").css("margin-right", "10px");
+	}}
 
