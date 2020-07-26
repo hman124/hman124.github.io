@@ -1,9 +1,9 @@
 //Popup Script
-var mousex, clickCount = 0,
+/* var mousex, clickCount = 0,
   popup = document.getElementById("popup"),
-  popupstate = 0;
+  popupstate = 0; */
 
-window.onclick = e => {
+/* window.onclick = e => {
   if (e.target != document.getElementById("popup") && popupstate == 1 && e.target != document.getElementsByTagName("a")[0] && e.target != document.getElementsByTagName("a")[1]) {
     document.getElementById("popup").style.display = "none";
     popupstate = 0;
@@ -25,7 +25,7 @@ document.getElementsByTagName("a")[0].addEventListener("click", function(event) 
   popup.innerHTML = "<a href=\"link/\">Custom Loading Screen Maker</a><a href=\"email-sender\">Email Sender</a><a href=\"schoolsite/main/\">Schoolsite</a>";
   popup.style.left = mouseX + "px";
   popupstate = 1;
-});
+}); */
 
 function checkMobile() {
   let check = false;
