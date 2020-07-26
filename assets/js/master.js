@@ -49,3 +49,4 @@ function mobileOptim(){
 	$(".container").css("margin-right", "10px");
 	}}
 
+mobileOptim();
