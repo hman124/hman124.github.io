@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script>
+function select(){
+if(document.getElementById("select").value == "Find A"){
+document.getElementById("find-a-form").style.display = "block"
+document.getElementById("triangle").style.display = "none"
+document.getElementById("find-c-form").style.display = "none";}
+else if(document.getElementById("select").value == "Check if right triangle"){
+document.getElementById("find-a-form").style.display = "none"
+document.getElementById("find-c-form").style.display = "none"
+document.getElementById("triangle").style.display = "block"}
+else{
+document.getElementById("find-a-form").style.display = "none"
+document.getElementById("find-c-form").style.display = "block"
+document.getElementById("triangle").style.display = "none";}
+}
+
+function tritrue(){
+var a = document.getElementById("a")
+var b = document.getElementById("b")
+var c = document.getElementById("c")
+var a2 = a.value * a.value
+var b2 = b.value * b.value 
+var c2 = c.value * c.value
+if(a2 + b2 == c2){
+document.getElementById("p").innerHTML = "<br>Yes <br><br> A<sup>2</sup> (" + a2 + ") + B<sup>2</sup> (" + b2 + ") = C<sup>2</sup> (" + c2 + ")";}
+else{
+document.getElementById("p").innerHTML = "<br>Not a Theorem Triple";}
+}
+
+function finda(){
+var findb = document.getElementById("find-a-b")
+var findc = document.getElementById("find-a-c")
+var b2 = findb.value * findb.value
+var c2 = findc.value * findc.value
+var what = c2-b2
+if(document.getElementById("find-a-cradic").value == ""){
+document.getElementById("p1").innerHTML = "<br>Leg A = " + Math.sqrt(what) + "<br><br>Leg A = &radic;" + what + "<br><br>Leg A<sup>2</sup> = " + what;}
+else if(document.getElementById("find-a-c").value == ""){
+var cradical = document.getElementById("find-a-cradic")
+what = cradical.value-b2
+document.getElementById("p1").innerHTML = "<br>Leg A = " + Math.sqrt(what) + "<br><br>Leg A<sup>2</sup> = " + what;}
+else{
+document.getElementById("p1").innerHTML = "<br>Make sure you have not filled out both hypotenuse boxes.";}
+}
+
+
+function findc(){
+var findca = document.getElementById("find-c-a")
+var findcb = document.getElementById("find-c-b")
+var b3 = findcb.value * findcb.value
+var c3 = findca.value * findca.value
+var what1 = c3+b3
+document.getElementById("p2").innerHTML = "<br>C = " + Math.sqrt(what1) + "<br><br>C = &radic;" + what1 + "<br><br> C<sup>2</sup> = " + what1;}
+
+function raddude(){
+if(document.getElementById("1o2").value == "normal"){
+document.getElementById("find-a-c").style.display = "block"
+document.getElementById("find-a-cradic").style.display = "none"
+document.getElementById("find-a-cradic").value = "";}
+else{
+document.getElementById("find-a-cradic").style.display = "block"
+document.getElementById("find-a-c").style.display = "none"
+document.getElementById("find-a-c").value = "";}
+}
+</script>
+</head>
+<body>
+<center>
+<h3 style="font-family:arial;">Theorem Calculator</h3>
+</center>
+<hr>
+<div>
+<select id="select" onchange="select()">
+<option value="Check if right triangle">Theorem Triple</option>
+<option value="Find A">Find Leg A</option>
+<option value="Find C">Find Leg C</option>
+</select>
+</div>
+<hr>
+<form id="triangle" style="display:block; float:left;">
+<p>Check if it is a Theorem Triple</p>
+<hr>
+<input type="number" id="a" placeholder="Length of Leg A" autocomplete="off">
+<br>
+<input  autocomplete="off" type="number" id="b" placeholder="Length of Leg B">
+<br>
+<input  autocomplete="off" type="number" id="c" placeholder="Length of Hypotenuse (C)">
+<br>
+<hr>
+<input type="button" onclick="tritrue()" value="Check">
+<p id="p" style="position:relative; left:15px;"></p>
+</form>
+<form id="find-a-form" style="display:none; float:left;">
+<p>Find Leg A</p>
+<hr>
+<input  autocomplete="off" id="find-a-b" type="number" placeholder="Leg B">
+<hr>
+<input  autocomplete="off" id="find-a-c" style="display:block;" type="number" placeholder="Hypotenuse C">
+<input  autocomplete="off" type="number" id="find-a-cradic" style="display:none;" Placeholder="C squared">
+<br>
+<select onchange="raddude()" id="1o2"><option value="normal">Enter The C Value</option><option value="radical">Enter C Value in Radical form</option></select>
+<hr>
+<br>
+<input type="button" onclick="finda()" value="Check">
+<p id="p1" style="position:relative; left:15px;"></p>
+</form>
+<form id="find-c-form" style="display:none; float:left;">
+<p>Find Leg C (Hypotenuse)</p>
+<hr>
+<input  autocomplete="off" id="find-c-a" type="number" placeholder="Leg A">
+<br>
+<input  autocomplete="off" id="find-c-b" type="number" placeholder="Leg B">
+<br>
+<hr>
+<input type="button" onclick="findc()" value="Check">
+<p id="p2" style="position:relative; left:15px;"></p>
+</form>
+</body>
+</html>
