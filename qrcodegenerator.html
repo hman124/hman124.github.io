@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+</head>
+<body>
+<input id="elText" type="text">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+var qrcode = new QRCode("qrcode");
+
+function makeCode () {      
+    var elText = document.getElementById("text");
+    
+    if (!elText.value) {
+        alert("Input a text");
+        elText.focus();
+        return;
+    }
+    
+    qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+    on("blur", function () {
+        makeCode();
+    }).
+    on("keydown", function (e) {
+        if (e.keyCode == 13) {
+            makeCode();
+        }
+    });
+</script>
+</body>
+</html>
