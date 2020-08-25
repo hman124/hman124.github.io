@@ -5,3 +5,4 @@ The Home Of All My Projects
 What I Have So Far
 
  - [Qr Code Tools](/qrcode)
+ - [Bing Image Of The Day](/bing-image)

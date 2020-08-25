@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Bing-Image - by Harrison Steed -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bing Image Of The Day</title>
+  <link rel="stylesheet" href="style.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="script.min.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="imageBox">
+      <img id="image">
+    </div>
+    <ul id="options">
+      <li>
+        <div class="embed" id="next" onclick="changeImg(false)">Next Image</div>
+      </li>
+      <li>
+        <div class="embed" id="pre" onclick="changeImg(true)">Previous Image</div>
+      </li>
+      <li>
+        <div style="cursor:text;" class="embed" id="count">0/0</div>
+      </li>
+      <li>
+        <div style="display:none;" onclick="modalOpen()" class="embed">Embed This Image</div>
+      </li>
+      <li id="loading">
+        <div class="embed"> Loading... </div>
+      </li>
+    </ul>
+    <div id="description">
+      <p id="time"></p>
+      <h3 id="title"></h3>
+      <p id="copyright"></p>
+      <a id="learn"></a>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+/* CSS files add styling rules to your content */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.contianer {
+  padding-bottom: 30px;
+}
+
+#modalUrl {
+  word-wrap: break-word;
+  color: blue;
+  fot-weight: 700;
+}
+
+#description {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+#description * {
+  word-wrap: break-word;
+  margin-top: 5px;
+}
+
+#modalImg {
+  word-wrap: break-word;
+  font-family: courier;
+}
+
+#options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  float: right;
+  margin-left: 10px;
+  display: block;
+}
+
+#options li {
+  list-style: none;
+}
+
+.imageBox {
+  display: grid;
+  height: 100%;
+}
+
+#image {
+  max-width: 100%;
+  max-height: 100vh;
+  margin: auto;
+}
+
+a {
+  color: blue;
+  font-weight: 700;
+}
+
+#time {
+  font-weight: bold;
+}
+
+.embed {
+  transition: opacity 1s;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  border-width: 2px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: white;
+  padding: 5px;
+  box-shadow: 3px 4px #ccc;
+}
+
+.embed::selection {
+  color: black;
+  background-color: white;
+}
+
+#loading {
+  display: none;
+}
