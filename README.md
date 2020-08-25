@@ -1,3 +1,2 @@
-# Hman124 #
-
-I focus on making cool new things, and doing so I learn and make even cooler things :)
+# hman124.github.io
+My project pages - Hosted with github pages
