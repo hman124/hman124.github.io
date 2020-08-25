@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Make A QR Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Harrison Steed">
+  <meta name="description" content="Create QR Codes From Text">
+  <link rel="stylesheet" href="master.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-nav">
+      <h1><a class="camo" href="../qrcode/">Qr Code Generator</a></h1>
+    </div>
+    <div class="content">
+      <div>
+        <p class="credits tile">Generator Made With <a href="https://github.com/davidshimjs/qrcodejs">Qrcode.js</a></p>
+      </div>
+      <div class="input tile">
+        <h1>Input</h1>
+        <input type="text" value=" " id="text">
+        <input type="button" value="Create" id="make">
+      </div>
+      <div class="output tile">
+        <h1>Output</h1>
+        <div id="qrcode"></div>
+        <div class="export tile">
+          <ul>
+            <li><a id="download" href="javascript:void(0);" download="qrcode.png">Download</a></li>
+            <li><a id="print" href="javascript:print();">Print</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="qrcode.min.js"></script>
+  <script>
+    //Generator
+    var qrcode = new QRCode("qrcode");
+
+    function makeCode() {
+      qrcode.makeCode($("#text").val());
+      $("#download").attr("href", $("#qrcode img").attr("src"));
+    }
+    makeCode();
+    $("make").click(() => {
+      makeCode();
+    });
+    $("#text").
+    on("focus", () => {
+      if ($("#text").val() == " ") {
+        $("#text").val("");
+      }
+    }).
+    on("blur", function() {
+      makeCode();
+    }).
+    on("keyup", function() {
+      makeCode();
+    });
+
+    function print() {
+      var a = window.open();
+      a.document.write('<html><head><title>QRCode - hman124.github.io/qrcodegenerator/</title><style>img{width:50%; height:auto;margin:auto;}.verticalcenter{height:30%;}</style></head><body><div class="verticalcenter"></div>' + $("#qrcode")
+        .html() + "</body></html>");
+      a.print();
+      a.close();
+    }
+  </script>
+</body>
+
+</html>

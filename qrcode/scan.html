@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <html lang="en" dir="ltr">
+  <meta charset="utf-8">
+  <title>Scan Qr Codes</title>
+  <link rel="stylesheet" href="master.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top-nav">
+      <h1><a class="camo" href="../qrcode/">Qr Code Scanner</a></h1>
+    </div>
+    <div class="content">
+      <div>
+        <p class="credits tile">Scanner Made With <a href="https://github.com/mebjas/html5-qrcode">html5-qrcode</a></p>
+      </div>
+      <div class="tile">
+        <h1>Input</h1>
+        <div id="reader"></div>
+      </div>
+      <div class="result tile">
+        <h1>Output</h1>
+        <div id="result"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="html5scanner.min.js"></script>
+  <script>
+    //Scanner
+    function onScanSuccess(qrCodeMessage) {
+      $("#result").text(qrCodeMessage);
+        html5QrcodeScanner.clear();
+    }
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader", {
+        fps: 10,
+        qrbox: 250
+      });
+    html5QrcodeScanner.render(onScanSuccess);
+  </script>
+</body>
+</html>
