@@ -5,6 +5,8 @@
     <style>
         body, html{
         height:100%;
+            padding:0;
+            font-family:arial;
         }
         .input{
         outline:none;
@@ -14,10 +16,19 @@
         .container{
         padding:1px;
         }
+        
+        .top{
+        margin-top:-1px;
+            margin-left:-1px;
+            width:100%;
+                background-color:#ccc;        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="top">
+            <h1>Create Qr Code</h1>
+        </div>
     <div class="input">
 <input id="text" type="text">
     <input type="button" value="Create" id="make">
