@@ -1,0 +1,68 @@
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    body,
+    html {
+      height: 100%;
+      padding: 0;
+      font-family: arial;
+    }
+
+    input {
+      border-style: solid;
+      border-width: 2px;
+      border-color: #000;
+      border-radius: 3px;
+      padding: 5px;
+    }
+
+    a {
+      color: blue;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .input {
+      outline: none;
+      border-width: 2px;
+      padding: 5px;
+    }
+
+    .container {
+      padding: 1px;
+    }
+
+    .top-nav {
+      margin: -1px;
+      display: block;
+      background: rgb(0, 255, 175);
+      background: linear-gradient(90deg, rgba(0, 255, 175, 1) 27%, rgba(2, 0, 36, 1) 100%);
+      padding: 5px;
+    }
+
+    .top-nav * {
+      display: inline;
+    }
+
+    .content {
+      padding: 15px;
+    }
+
+    .output, .credits {
+      padding: 5px;
+    }
+
+    .export ul li {
+      list-style: none;
+    }
+
+    .credits {
+      font-weight: 700;
+    }
