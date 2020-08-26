@@ -16,7 +16,8 @@
     </div>
     <div class="content">
       <div>
-        <p class="credits tile">Generator Made With <a href="https://github.com/davidshimjs/qrcodejs">Qrcode.js</a></p>
+        <p class="credits tile">Generator Made With <a href="https://github.com/davidshimjs/qrcodejs">qrcode.js</a></p>
+        <p class="credits tile">Downloads Made With <a href="https://github.com/rndme/download">download.js</a></p>
       </div>
       <div class="input tile">
         <h1>Input</h1>
@@ -28,7 +29,7 @@
         <div id="qrcode"></div>
         <div class="export tile">
           <ul>
-            <li><a id="download" href="javascript:void(0);" download="qrcode.png">Download</a></li>
+            <li><a id="download" href="javascript:void(0);">Download</a></li>
             <li><a id="print" href="javascript:print();">Print</a></li>
           </ul>
         </div>
@@ -44,7 +45,8 @@
 
     function makeCode() {
       qrcode.makeCode($("#text").val());
-      $("#download").attr("href", "javascript:download('" + $("#qrcode img").attr("src") + "', 'qrCode.png');");
+	  $("#download").off("click");
+      $("#download").on("click", () => {download($("#qrcode img").attr("src"), 'qrCode.png');});
     }
     makeCode();
     $("make").click(() => {
