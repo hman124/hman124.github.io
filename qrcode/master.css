@@ -11,7 +11,7 @@
       font-family: arial;
     }
 
-    input[type=text], input[type=button], button, #result, #reader, select{
+    input, button, #result, #reader, select{
       border-style: solid;
       border-width: 2px;
       border-color: #000;

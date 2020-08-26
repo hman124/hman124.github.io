@@ -37,13 +37,14 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="qrcode.min.js"></script>
+  <script src="download.min.js"></script>
   <script>
     //Generator
     var qrcode = new QRCode("qrcode");
 
     function makeCode() {
       qrcode.makeCode($("#text").val());
-      $("#download").attr("href", $("#qrcode img").attr("src"));
+      $("#download").attr("href", "javascript:download('" + $("#qrcode img").attr("src") + "', 'qrCode.png');");
     }
     makeCode();
     $("make").click(() => {
