@@ -35,9 +35,19 @@
   <script src="https://code.jquery.com/jquery.min.js"></script>
   <script src="html5scanner.min.js"></script>
   <script>
-    //Scanner
+var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
+function textToLink(txt) {
+  //Turns any urls sent into clickable links with regex
+  //Found this at: https://tinyurl.com/y2l8qfhn (Original link was 235 characters long)
+  text2 = txt.replace(exp, "<a href='$1'>$1</a>");
+  exp2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+  text3 = text2.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+  return text3;
+}
+
+//function to run when qr code is scanned successfully
     function onScanSuccess(qrCodeMessage) {
-      $("#result").text(qrCodeMessage);
+      $("#result").html(textToLink(qrCodeMessage));
         html5QrcodeScanner.clear();
     }
     var html5QrcodeScanner = new Html5QrcodeScanner(

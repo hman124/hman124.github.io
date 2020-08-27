@@ -12,7 +12,7 @@ body {
   font-family: arial;
 }
 
-input, textarea, button, select, .view-item {
+input, textarea, button, select, .view-content {
   border-style: solid;
   border-color: #000;
   border-radius: 3px;
@@ -20,28 +20,15 @@ input, textarea, button, select, .view-item {
   padding: 5px;
 }
 
-.view-item{
-  margin-left:10px;
+.view-item {
+  display: block;
 }
 
-.view-item:first-of-type{
-  margin-left:0px;
-}
-
-.input-box, .text-box {
-  display: inline;
-}
-
-.input-box::before{
-  content:"Input: \"";
-}
-
-.input-box::after, .text-box::after{
-  content:"\"";
-}
-
-.text-box::before{
-  content:"Text: \"";
+.view-content {
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  word-break: break-all;
 }
 
 .divider {
@@ -51,8 +38,9 @@ input, textarea, button, select, .view-item {
   padding-bottom: 20px;
   margin-bottom: 20px
 }
-.center{
-  text-align:center;
+
+.center {
+  text-align: center;
 }
 
 .container {
