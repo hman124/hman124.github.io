@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: arial;
+}
+
+input, textarea, button, select, .view-item {
+  border-style: solid;
+  border-color: #000;
+  border-radius: 3px;
+  border-width: 2px;
+  padding: 5px;
+}
+
+.view-item{
+  margin-left:10px;
+}
+
+.view-item:first-of-type{
+  margin-left:0px;
+}
+
+.input-box, .text-box {
+  display: inline;
+}
+
+.input-box::before{
+  content:"Input: \"";
+}
+
+.input-box::after, .text-box::after{
+  content:"\"";
+}
+
+.text-box::before{
+  content:"Text: \"";
+}
+
+.divider {
+  border-bottom-style: solid;
+  border-bottom-color: #ccc;
+  border-bottom-width: 2px;
+  padding-bottom: 20px;
+  margin-bottom: 20px
+}
+.center{
+  text-align:center;
+}
+
+.container {
+  padding: 20px;
+}
+
+.dialogs {
+  display: none;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}

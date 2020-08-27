@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mad Libs Maker - Create Digital Mad Libs</title>
+  <link rel="stylesheet" href="master.css">
+  <link rel="stylesheet" href="jquery-ui.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="add-buttons divider">
+      <button id="addinput"><i class="ui-icon ui-icon-plus"></i> Add an input</button>
+      <button id="addtext"><i class="ui-icon ui-icon-plus"></i> Add a text section</button>
+    </div>
+    <div class="project-view">
+      <h1>View</h1>
+      <h3 class="divider">(Click Items To Remove)</h3>
+      <div id="elements">
+      </div>
+    </div>
+    <div class="dialogs">
+      <div id="newinput">
+        <label>
+          Type:
+          <input id="newinputvalue" placeholder="Noun, Verb, Etc.">
+        </label>
+      </div>
+      <div id="newtext">
+        <label>
+          Text:
+          <input id="newtextvalue" placeholder="Went to the store">
+        </label>
+      </div>
+    </div>
+  </div>
+  <script src="jquery.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script type="text/javascript">
+    var inputs = {};
+    $("#addinput").click(() => {
+      $("#newinput").dialog("open");
+    });
+    $("#addtext").click(() => {
+      $("#newtext").dialog("open");
+    });
+    $("#newinput").dialog({
+      dialogClass: "no-close",
+      title: "New Input",
+      autoOpen: false,
+      width: 400,
+      buttons: [{
+          text: "Ok",
+          click: function() {
+            $("#elements").append(
+              $("<div></div>")
+              .attr("class", "view-item input-box")
+              .text(
+                $("#newinputvalue").val()));
+            $("#newinputvalue").val("");
+            $(this).dialog("close");
+          }
+        },
+        {
+          text: "Cancel",
+          click: function() {
+            $(this).dialog("close");
+          }
+        }
+      ]
+    });
+
+    //New textbox dialog
+    $("#newtext").dialog({
+      dialogClass: "no-close",
+      title: "New Text Section",
+      autoOpen: false,
+      width: 400,
+      buttons: [{
+          text: "Ok",
+          click: function() {
+            $("#elements").append(
+              $("<div></div>")
+              .attr("class", "view-item text-box")
+              .text($("#newtextvalue").val()));
+            $("#newtextvalue").val("");
+            $(this).dialog("close");
+          }
+        },
+        {
+          text: "Cancel",
+          click: function() {
+            $(this).dialog("close");
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
