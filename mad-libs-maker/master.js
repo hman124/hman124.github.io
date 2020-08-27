@@ -11,6 +11,7 @@ $("#addtext").click(() => {
   $("#newtext").dialog("open");
 });
 $("#download").click(() => {
+  if(elements.length <= 1)return;
   $("#build").dialog("open");
 });
 //Turn the elements into a dialog
@@ -27,6 +28,11 @@ $("#newinput").dialog({
       text: "Ok",
       click: function() {
         //what to do when ok is clicked
+        //If value is empty, don't do anything
+        if (!/\S/.test($("#newinputvalue").val())) {
+            $(this).dialog("close");
+          return;
+        }
         //add the new input into the array
         elements.push(JSON.parse("{\"type\": \"input\", \"value\": \"" + cleanStr($("#newinputvalue").val()) + "\"}"));
         //add a visual representaion in the "view" part of the page
@@ -66,6 +72,10 @@ $("#newtext").dialog({
   buttons: [{
       text: "Ok",
       click: function() {
+        if (!/\S/.test($("#newtextvalue").val())) {
+            $(this).dialog("close");
+          return;
+        }
         elements.push(JSON.parse("{\"type\": \"text\", \"value\": \"" + cleanStr($("#newtextvalue").val()) + "\"}"));
         $("#elements").append($("<div></div>").attr("class", "view-item").attr("data-id", (elements.length - 1)).append($("<div></div>").attr("class", "view-content").text("Text: " + $("#newtextvalue").val())));
         $("#newtextvalue").val("");
@@ -95,13 +105,14 @@ $("#build").dialog({
   buttons: [{
       html: "<span class=\"ui-icon ui-icon-arrowstop-1-s\"></span> Download",
       click: function() {
-  build();
-  $(this).dialog("close");
+        build(  $("#buildtitlevalue").val());
+        $(this).dialog("close");
       }
     },
     {
       text: "Cancel",
       click: function() {
+        $("#buildtitlevalue").val("");
         $(this).dialog("close");
       }
     }
@@ -115,22 +126,36 @@ function cleanStr(e) {
 }
 
 //Build the .html file with the user input
-function build() {
+function build(title) {
   //final output - stores the file until download includes initial content
-  var output;  //loop through the items in the elements array and put them in html form into output
+  var output, items;
+try {
+  $.ajax({
+      url: "/template.html",
+      context: document.body
+    })
+    .done((data) => {
+      alert(data);
+    });}
+    catch(e){
+      alert("An error has occurred. Are You connected to internet?")
+      return;
+    }
+  //loop through the items in the elements array and put them in html form into output
   for (var o = 0; o < elements.length; o++) {
     if (elements[o].type == "input") {
-      output += "<input type=\"text\" placeholder=\"" + elements[o].value + "\">";
+      items += "<input type=\"text\" placeholder=\"" + elements[o].value + "\">";
     } else if (elements[o].type == "text") {
-      output += "<input type=\"hidden\" value=\"" + elements[o].value + "\">";
+      items += "<input type=\"hidden\" value=\"" + elements[o].value + "\">";
     }
   }
 
   //add closing html tags
-  output += "</div><script></script></body></html>";
+  output.replace("INPUTS GO HERE", items);
+  output.replace("TITLE GOES HERE", title);
 
   //encode to base64 for download
-// https://scotch.io/tutorials/how-to-encode-and-decode-strings-with-base64-in-javascript#toc-cross-browser-method-compressed-
+  // https://scotch.io/tutorials/how-to-encode-and-decode-strings-with-base64-in-javascript#toc-cross-browser-method-compressed-
   var Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     encode: function(e) {
