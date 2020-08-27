@@ -11,7 +11,7 @@ $("#addtext").click(() => {
   $("#newtext").dialog("open");
 });
 $("#download").click(() => {
-  if(elements.length <= 1)return;
+  if (elements.length <= 1) return;
   $("#build").dialog("open");
 });
 //Turn the elements into a dialog
@@ -30,7 +30,7 @@ $("#newinput").dialog({
         //what to do when ok is clicked
         //If value is empty, don't do anything
         if (!/\S/.test($("#newinputvalue").val())) {
-            $(this).dialog("close");
+          $(this).dialog("close");
           return;
         }
         //add the new input into the array
@@ -42,9 +42,9 @@ $("#newinput").dialog({
         //close the dialog
         $(this).dialog("close");
         //reset all previous view elements
-        $(".view-content").off("click");
-        //set the new view to delete itself if clicked
-        $(".view-content").click((e) => {
+        $(".view-content").off("dblclick");
+        //set the new view to delete itself if  double clicked
+        $(".view-content").dblclick((e) => {
           elements = elements.splice($(e.target).parent().attr("data-id"), $(e.target).parent().attr("data-id"));
           $(e.target).parent().remove();
         });
@@ -73,15 +73,15 @@ $("#newtext").dialog({
       text: "Ok",
       click: function() {
         if (!/\S/.test($("#newtextvalue").val())) {
-            $(this).dialog("close");
+          $(this).dialog("close");
           return;
         }
         elements.push(JSON.parse("{\"type\": \"text\", \"value\": \"" + cleanStr($("#newtextvalue").val()) + "\"}"));
         $("#elements").append($("<div></div>").attr("class", "view-item").attr("data-id", (elements.length - 1)).append($("<div></div>").attr("class", "view-content").text("Text: " + $("#newtextvalue").val())));
         $("#newtextvalue").val("");
         $(this).dialog("close");
-        $(".view-content").off("click");
-        $(".view-content").click((e) => {
+        $(".view-content").off("dblclick");
+        $(".view-content").dblclick((e) => {
           elements = elements.splice($(e.target).parent().attr("data-id"), $(e.target).parent().attr("data-id"));
           $(e.target).parent().remove();
         });
@@ -105,7 +105,7 @@ $("#build").dialog({
   buttons: [{
       html: "<span class=\"ui-icon ui-icon-arrowstop-1-s\"></span> Download",
       click: function() {
-        build(  $("#buildtitlevalue").val());
+        build($("#buildtitlevalue").val());
         $(this).dialog("close");
       }
     },
@@ -129,18 +129,17 @@ function cleanStr(e) {
 function build(title) {
   //final output - stores the file until download includes initial content
   var output, items;
-try {
   $.ajax({
-      url: "/template.html",
-      context: document.body
-    })
-    .done((data) => {
-      alert(data);
-    });}
-    catch(e){
-      alert("An error has occurred. Are You connected to internet?")
-      return;
+    url: "template.html",
+    context: document.body,
+    dataType: "html",
+    success: (data) => {
+      output = data;
+    },
+    error: (xhr,status,error) => {
+      alert("An error has occurred. Are You connected to the internet?");
     }
+  });
   //loop through the items in the elements array and put them in html form into output
   for (var o = 0; o < elements.length; o++) {
     if (elements[o].type == "input") {
