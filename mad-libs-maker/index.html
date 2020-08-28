@@ -23,9 +23,9 @@
     <div class="project-view">
       <h2>Project View:</h2>
       <h4 class="divider" id="tapclick">(Double-Click Items To Modify)</h3>
-      <div id="elements">
-        <i class="faded">The Project View is empty. Add a text section or input to get started....</i>
-      </div>
+        <div id="elements">
+          <i class="faded">The Project View is empty. Add a text section or input to get started....</i>
+        </div>
     </div>
     <div class="dialogs">
       <div id="newinput">
@@ -48,7 +48,14 @@
       <div id="edit">
         <label>
           Edit:
-          <input id="editvalue" placeholder="Items with no content will be deleted">
+          <input id="editvalue" placeholder="This item will be deleted">
+        </label>
+        <label>
+          Type:
+          <select id="type">
+            <option id="text" value="text">Text</option>
+            <option id="input" value="input">Input</option>
+          </select>
         </label></div>
     </div>
   </div>
