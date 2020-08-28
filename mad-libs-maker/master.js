@@ -6,13 +6,19 @@ var elements = [];
 //Open jqueryui dialogs when the buttons are clicked
 $("#addinput").click(() => {
   $("#newinput").dialog("open");
+   $("#build").dialog("close");
+  $("#newtext").dialog("close");
 });
 $("#addtext").click(() => {
+   $("#newinput").dialog("close");
+   $("#build").dialog("close");
   $("#newtext").dialog("open");
 });
 $("#download").click(() => {
   if (elements.length <= 1) return;
   $("#build").dialog("open");
+    $("#newinput").dialog("close");
+  $("#newtext").dialog("close");
 });
 //Turn the elements into a dialog
 $("#newinput").dialog({
@@ -150,6 +156,9 @@ $("#edit").dialog({
         $(".view-content").off("dblclick");
         $(".view-content").dblclick((e) => {
           $("#editvalue").val(elements[$(e.target).parent().attr("data-id")].value);
+            $("#newinput").dialog("close");
+   $("#build").dialog("close");
+  $("#newtext").dialog("close");
           $("#edit").data("id", $(e.target).parent().attr("data-id")).dialog("open");
         });
       }
