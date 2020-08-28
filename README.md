@@ -2,7 +2,8 @@
 
 The Home Of All My Projects
 
-What I Have So Far
+My Projects:
 
- - [Qr Code Tools](/qrcode)
- - [Bing Image Of The Day](/bing-image)
+ - [Qr Code Tools](/qrcode/)
+ - [Bing Image Of The Day](/bing-image/)
+ - [Mad Libs Maker](/mad-libs-maker/)
