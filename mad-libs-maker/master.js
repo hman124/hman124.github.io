@@ -118,7 +118,7 @@ $("#edit").dialog({
       buttons: [{
         text: "Save Changes",
         click: function() {
-          if (!/\S/.test($("#editvalue").val()) {
+          if (!/\S/.test($("#editvalue").val())) {
                 elements = elements.splice($(this).data("id"), $(this).data("id"));
                 $("[data-id=" + $(this).data("id") + "]").remove();
                 $(this).dialog("close");
