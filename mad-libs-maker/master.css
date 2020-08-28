@@ -18,6 +18,7 @@ input, textarea, button, select, .view-content {
   border-radius: 3px;
   border-width: 2px;
   padding: 5px;
+  margin-top:5px;
 }
 
 .view-item {
@@ -30,6 +31,10 @@ input, textarea, button, select, .view-content {
   margin-top: 10px;
   display: inline-block;
   word-break: break-all;
+}
+
+.view-content:first-letter{
+  text-transform: capitalize;
 }
 
 .divider {
