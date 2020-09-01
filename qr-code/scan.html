@@ -15,9 +15,6 @@
 </head>
 <body>
   <div class="container">
-    <div class="top-nav">
-      <h1><a class="camo" href="../qrcode/">Qr Code Scanner</a></h1>
-    </div>
     <div class="content">
       <div>
         <p class="credits tile">Scanner Made With <a href="https://github.com/mebjas/html5-qrcode">html5-qrcode</a></p>
@@ -52,7 +49,7 @@ function textToLink(txt) {
     }
     var html5QrcodeScanner = new Html5QrcodeScanner(
       "reader", {
-        fps: 10,
+        fps: 10,`
         qrbox: 250
       });
     html5QrcodeScanner.render(onScanSuccess);

@@ -1,0 +1,80 @@
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    body,
+    html {
+      height: 100%;
+    }
+
+    body{
+      font-family: arial;
+      padding:20px;
+    }
+
+    input, button, #result, #reader, select {
+      border-style: solid;
+      border-width: 2px;
+      border-color: #000;
+      border-radius: 3px;
+      padding: 5px;
+    }
+
+    input[type=file] {
+      padding: 0px;
+      border-radius: 5px;
+    }
+
+    a {
+      color: blue;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    select {
+      margin-bottom: 10px;
+    }
+
+    .input {
+      outline: none;
+      border-width: 2px;
+      padding: 5px;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .title{
+      margin-bottom:10px
+    }
+
+    .divider {
+      border-bottom: 2px #000 solid;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+
+    #reader__dashboard_section_swaplink {
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    #reader {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    #result {
+      font-family: courier;
+      padding: 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }

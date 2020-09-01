@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas test</title>
+    <style media="screen">
+	canvas{
+	border:2px #000 solid;
+	border-radius:3px;
+	}
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="150">Your Browser not supported</canvas>
+    <script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+	ctx.lineWidth = 2;
+	roundedRect(ctx, 0, 0, 300, 150, 5);
+	ctx.font = '30px sans-serif';
+	ctx.fillStyle = "#1e1e1e";
+    ctx.fillText("Harrison Steed", 10,30);
+	ctx.fillStyle = "#000";
+	ctx.fillRect(10, 35, 300 ,2);
+	ctx.font = '20px sans-serif';
+	ctx.fillText("NSAA", 10, 65)
+	ctx.fillText("NSAA", 10, 85)
+	ctx.fillText("NSAA", 10, 105)
+	function roundedRect(ctx, x, y, width, height, radius) {
+  ctx.beginPath();
+  ctx.moveTo(x, y + radius);
+  ctx.lineTo(x, y + height - radius);
+  ctx.arcTo(x, y + height, x + radius, y + height, radius);
+  ctx.lineTo(x + width - radius, y + height);
+  ctx.arcTo(x + width, y + height, x + width, y + height-radius, radius);
+  ctx.lineTo(x + width, y + radius);
+  ctx.arcTo(x + width, y, x + width - radius, y, radius);
+  ctx.lineTo(x + radius, y);
+  ctx.arcTo(x, y, x, y + radius, radius);
+  ctx.stroke();
+}
+    </script>
+  </body>
+</html>

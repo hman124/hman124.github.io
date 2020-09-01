@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Make A QR Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Harrison Steed">
+  <meta name="description" content="Create QR Codes From Text">
+  <link rel="stylesheet" href="assets/css/master.css">
+</head>
+
+<body>
+  <h1 class="divider">Qr Code Tools</h1>
+  <p class="bold">Generator Made With <a href="https://github.com/davidshimjs/qrcodejs">qrcodejs</a></p>
+  <p class="bold">Printing Made With <a href="https://github.com/crabbly/Print.js">Print.js</a></p>
+  <p class="bold divider">Scanner Made With <a href="https://github.com/mebjas/html5-qrcode">html5-qrcode</a></p>
+  <h1 class="title">Scan</h1>
+  <h2>Input</h2>
+  <div id="reader"></div>
+  <h2>Output</h2>
+  <div class="divider" id="result"></div>
+  <div class="divider"></div>
+  <h1 class="title">Generate</h1>
+  <h2>Input</h2>
+  <input class="title" type="text" id="text">
+  <input type="button" value="Create" id="make">
+  <h2>Output</h2>
+  <div class="title" id="qrcode"></div>
+  <input value="Download" type="button" id="download"></li>
+  <input class="title" value="Print" type="button" id="print"></li>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="assets/js/html5scanner.min.js"></script>
+  <script src="assets/js/qrcode.min.js"></script>
+  <script src="assets/js/print.min.js"></script>
+  <script>
+    //Generator
+    var qrcode = new QRCode("qrcode");
+    $("body").append($("<a></a>").css("display", "none").attr("id", "downloadLink").attr("download", "Qr-Code"));
+
+    function makeCode() {
+      qrcode.makeCode($("#text").val());
+      $("#downloadLink").attr("href", $("#qrcode img").attr("src"));
+    }
+    makeCode();
+    $("#download").click(() => {
+      document.getElementById("downloadLink").click();
+    });
+    $("make").click(() => {
+      makeCode();
+    });
+    $("#text").on("keyup", function() {
+      makeCode();
+    });
+    $("#print").click(() => {
+      printJS({
+        printable: 'qrcode',
+        type: 'html',
+        header: "<style>*{font-family:arial;}</style><h1>" + $("#text").val() + "</h1>"
+      });
+    });
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
+
+    function textToLink(txt) {
+      //Turns any urls sent into clickable links with regex
+      //Found this at: https://tinyurl.com/y2l8qfhn (Original link was 235 characters long)
+      text2 = txt.replace(exp, "<a href='$1'>$1</a>");
+      exp2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+      text3 = text2.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+      return text3;
+    }
+
+    //function to run when qr code is scanned successfully
+    function onScanSuccess(qrCodeMessage) {
+      $("#result").html(textToLink(qrCodeMessage));
+      html5QrcodeScanner.clear();
+    }
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader", {
+        fps: 10,
+        qrbox: 250
+      });
+    html5QrcodeScanner.render(onScanSuccess);
+  </script>
+</body>
+
+</html>
