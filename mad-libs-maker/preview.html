@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mad Libs Preview</title>
+  <style media="screen">
+    *{
+      margin:0;
+      padding:0;
+    }
+    body, html{
+      height:100%;
+    }
+    iframe{
+      height:100%;
+      width:100%;
+      border:none;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="content"></iframe>
+<script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+$("#content").attr("src", window.location.hash.slice(1, window.location.hash.length));
+</script>
+</body>
+</html>
