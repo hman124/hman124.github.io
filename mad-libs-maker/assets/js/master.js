@@ -1,9 +1,24 @@
-//Master.js - Made for mad-libs-maker By Harrison Steed
+/**
+ * Master.js
+ * Made for mad-libs-maker
+ * By Harrison Steed
+ */
 
 //Main Array. Holds all of the text sections and inputs
-var elements = [];
+let elements = [],
+  punctStartCount = 0,
+  punctEndCount = 0,
+  inputTypes = ["Noun", "Plural Noun", "Verb", "Adjective", "Color", "Part Of The Body", "Part Of The Body (Plural)", "Person In Room", "Person In Room (Female)", "Person In Room (Male)", "Type Of Liquid", "Something Alive", "Something Alive (Plural)", "Verb Ending In \"Ing\"", "A Place", "Random Number"];
 
 //Open jqueryui dialogs when the buttons are clicked
+$("#smartspaces").click(() => {
+  $("#smartspacestate").click();
+  if ($("#smartspacestate").prop("checked")) {
+    $("#smartspaces").html("<i class=\"ui-icon ui-icon-check\"></i> Smart Spaces");
+  } else {
+    $("#smartspaces").html("<i class=\"ui-icon ui-icon-closethick\"></i> Smart Spaces");
+  }
+});
 $("#addinput").click(() => {
   $("#newinput").dialog("open");
   $("#build").dialog("close");
@@ -20,6 +35,9 @@ $("#download").click(() => {
   $("#newinput").dialog("close");
   $("#newtext").dialog("close");
 });
+$("#newinputvalue").autocomplete({
+      source: inputTypes
+    });
 //Turn the elements into a dialog
 $("#newinput").dialog({
   //Hide the close "X"
@@ -64,6 +82,10 @@ $("#newinput").dialog({
   ]
 });
 
+function cleanStr(str) {
+  return str.replace(/&/, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/'/g, "&apos;").replace(/\\/g, "\\\\").replace(/\"/g, "&quot;");
+}
+
 //New textbox dialog - same as above but different dialog
 $("#newtext").dialog({
   dialogClass: "no-close",
@@ -77,7 +99,7 @@ $("#newtext").dialog({
           $(this).dialog("close");
           return;
         }
-        elements.push(JSON.parse("{\"type\": \"text\", \"value\": \"" + cleanStr($("#newtextvalue").val()) + "\"}"));
+        elements.push(JSON.parse("{\"type\": \"text\", \"value\": \"" + smartSpaces($("#newtextvalue").val()) + "\"}"));
         $("#elements").append($("<div></div>").attr("class", "view-item").attr("data-id", (elements.length - 1)).append($("<div></div>").attr("class", "view-content").text("Text: " + $("#newtextvalue").val())));
         $("#newtextvalue").val("");
         $(this).dialog("close");
@@ -129,7 +151,7 @@ $("#edit").dialog({
         $("[data-id=" + $(this).data("id") + "]").remove();
         $(this).dialog("close");
       } else {
-        elements[$(this).data("id")].value = $("#editvalue").val()
+        elements[$(this).data("id")].value = smartSpaces($("#editvalue").val());
         elements[$(this).data("id")].type = $("#type").val();
         $("[data-id=" + $(this).data("id") + "] .view-content").html(elements[$(this).data("id")].type + ": " + $("#editvalue").val());
         $("#editvalue").val("")
@@ -166,11 +188,6 @@ function resetClicks() {
   });
 }
 
-//escape \ and " to prevent errors
-function cleanStr(e) {
-  //uses regex with /g to replace all occurrances
-  return e.replace(/&/, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/'/g, "&apos;").replace(/\\/g, "\\\\").replace(/\"/g, "&quot;");
-}
 
 //Build the .html file with the user input
 function build(title) {
@@ -304,7 +321,17 @@ function build(title) {
       $("#downloadFile").remove();
     },
     error: (xhr, status, error) => {
-      alert("An error has occurred. Are You connected to the internet?");
+      $("<div></div>").text("An error has occurred. Are You connected to the internet?").dialog({
+        title: "Error",
+        autoOpen: false,
+        width: 400,
+        buttons: [{
+          text: "Close",
+          click: function() {
+            $(this).dialog("close");
+          }
+        }]
+      }).dialog("open");
     }
   });
 }
@@ -319,4 +346,26 @@ const mobileCheck = function() {
 
 if (mobileCheck()) {
   $("#tapclick").text("(Double-Tap Items To Modify)");
+}
+
+function smartSpaces(str) {
+  if (!$("#smartspacestate").prop("checked")) return cleanStr(str);
+  var punctuation = ["-", "/", "_", "&"];
+  for (i in punctuation) {
+    if (!str.endsWith(punctuation[i])) {
+      punctEndCount++;
+    }
+    if (!str.startsWith(punctuation[i])) {
+      punctStartCount++;
+    }
+  }
+  if (punctStartCount === punctuation.length && elements.length) {
+    str = " " + str;
+  }
+  if (punctEndCount === punctuation.length) {
+    str += " ";
+  }
+  punctStartCount = 0;
+  punctEndCount = 0;
+  return cleanStr(str);
 }
