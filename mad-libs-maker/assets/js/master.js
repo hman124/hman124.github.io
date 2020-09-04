@@ -190,16 +190,32 @@ let elements = [],
             document.getElementById("downloadFile").click();
             $("#downloadFile").remove();
           } else if (type == "preview") {
-            if(previewWindow.closed){
-              previewWindow = window.open("preview#data:text/html;base64," + Base64.encode(output));
-            }
-            else{
-              previewWindow.location.href = "preview#data:text/html;base64," + Base64.encode(output);
+            if (!previewWindow) {
+              previewWindow = window.open("preview@data:text/html;base64," + Base64.encode(output));
+            } else {
+              if (!previewWindow.closed) {
+                previewWindow.location.href = "preview@data:text/html;base64," + Base64.encode(output);
+              } else {
+                previewWindow = window.open("preview@data:text/html;base64," + Base64.encode(output));
+
+              }
             }
           } else if (type == "share") {
-            fetch("https://wildware.000webhostapp.com/no-cors.php?url=https%3A%2F%2Ftinyurl.com%2Fapi-create.php%3Furl%3D" + encodeURI("https://hman124.github.io/mad-libs-maker/preview#" + Base64.encode(output)))
-            .then(response => response.json())
-            .then(data => {alert("url: " + data);});
+            fetch("https://wildware.000webhostapp.com/no-cors.php?url=https%3A%2F%2Ftinyurl.com%2Fapi-create.php%3Furl%3D" + encodeURI("https://hman124.github.io/mad-libs-maker/preview@" + Base64.encode(output)))
+              .then(response => response.text())
+              .then(data => {
+                $("<div></div>").html("<p id=\"url\">Link: <a href=\"" + data + "\">" + data + "</a></p><br><input id=\"copy\" type=\"button\" value=\"Copy\">").dialog({
+                  title: "Share This Mad Lib",
+                  autoOpen: false,
+                  width: 400,
+                  buttons: [{
+                    text: "Close",
+                    click: function() {
+                      $(this).dialog("close");
+                    }
+                  }]
+                }).dialog("open");
+              });
           }
         },
         error: (xhr, status, error) => {
@@ -271,6 +287,15 @@ $("#download").click(() => {
 
 $("#newinputvalue").autocomplete({
   source: inputTypes
+});
+
+$("#copy").click(() => {
+  var copyText = document.getElementById("url");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  $("#copy").val("Copied!");
+  setTimeout(() => {$("#copy").val("Copy");}, 5000);
 });
 
 // $("#newinputvalue").on("keydown", (event) => {
