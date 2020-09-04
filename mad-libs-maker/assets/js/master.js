@@ -401,3 +401,9 @@ $(document).ready(() => {
     $("#tapclick").text("(Double-Tap Items To Modify)");
   }
 });
+
+window.addEventListener('beforeunload', function (e) {
+if(elements.length > 0){
+    e.preventDefault();
+    e.returnValue = '';}
+});
