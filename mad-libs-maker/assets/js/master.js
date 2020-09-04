@@ -9,35 +9,267 @@
 let elements = [],
   punctStartCount = 0,
   punctEndCount = 0,
-  inputTypes = ["Noun", "Plural Noun", "Verb", "Adjective", "Color", "Part Of The Body", "Part Of The Body (Plural)", "Person In Room", "Person In Room (Female)", "Person In Room (Male)", "Type Of Liquid", "Something Alive", "Something Alive (Plural)", "Verb Ending In \"Ing\"", "A Place", "Random Number"];
+  inputTypes = ["Noun", "Plural Noun", "Verb", "Adjective", "Color", "Part Of The Body", "Part Of The Body (Plural)", "Person In Room", "Person In Room (Female)", "Person In Room (Male)", "Type Of Liquid", "Something Alive", "Something Alive (Plural)", "Verb Ending In \"Ing\"", "A Place", "Random Number"],
+  Base64 = {
+    _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+    encode: function(e) {
+      var t = "";
+      var n, r, i, s, o, u, a;
+      var f = 0;
+      e = Base64._utf8_encode(e);
+      while (f < e.length) {
+        n = e.charCodeAt(f++);
+        r = e.charCodeAt(f++);
+        i = e.charCodeAt(f++);
+        s = n >> 2;
+        o = (n & 3) << 4 | r >> 4;
+        u = (r & 15) << 2 | i >> 6;
+        a = i & 63;
+        if (isNaN(r)) {
+          u = a = 64
+        } else if (isNaN(i)) {
+          a = 64
+        }
+        t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a)
+      }
+      return t
+    },
+    decode: function(e) {
+      var t = "";
+      var n, r, i;
+      var s, o, u, a;
+      var f = 0;
+      e = e.replace(TEST, "");
+      while (f < e.length) {
+        s = this._keyStr.indexOf(e.charAt(f++));
+        o = this._keyStr.indexOf(e.charAt(f++));
+        u = this._keyStr.indexOf(e.charAt(f++));
+        a = this._keyStr.indexOf(e.charAt(f++));
+        n = s << 2 | o >> 4;
+        r = (o & 15) << 4 | u >> 2;
+        i = (u & 3) << 6 | a;
+        t = t + String.fromCharCode(n);
+        if (u != 64) {
+          t = t + String.fromCharCode(r)
+        }
+        if (a != 64) {
+          t = t + String.fromCharCode(i)
+        }
+      }
+      t = Base64._utf8_decode(t);
+      return t
+    },
+    _utf8_encode: function(e) {
+      e = e.replace(/\r\n/g, "n");
+      var t = "";
+      for (var n = 0; n < e.length; n++) {
+        var r = e.charCodeAt(n);
+        if (r < 128) {
+          t += String.fromCharCode(r)
+        } else if (r > 127 && r < 2048) {
+          t += String.fromCharCode(r >> 6 | 192);
+          t += String.fromCharCode(r & 63 | 128)
+        } else {
+          t += String.fromCharCode(r >> 12 | 224);
+          t += String.fromCharCode(r >> 6 & 63 | 128);
+          t += String.fromCharCode(r & 63 | 128)
+        }
+      }
+      return t
+    },
+    _utf8_decode: function(e) {
+      var t = "";
+      var n = 0;
+      var r = c1 = c2 = 0;
+      while (n < e.length) {
+        r = e.charCodeAt(n);
+        if (r < 128) {
+          t += String.fromCharCode(r);
+          n++
+        } else if (r > 191 && r < 224) {
+          c2 = e.charCodeAt(n + 1);
+          t += String.fromCharCode((r & 31) << 6 | c2 & 63);
+          n += 2
+        } else {
+          c2 = e.charCodeAt(n + 1);
+          c3 = e.charCodeAt(n + 2);
+          t += String.fromCharCode((r & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
+          n += 3
+        }
+      }
+      return t
+    }
+  },
+  madlibs = {
+    'createElement': (value, type, spacing) => {
+      if (!/\S/.test(value)) return;
+      if (type === "text" && elements.length > 0 && elements[elements.length - 1].type === type) {
+        elements[elements.length - 1].value += madlibs.smartSpaces($("#newtextvalue").val());
+        $("[data-id=" + (elements.length - 1) + "]").append(madlibs.smartSpaces($("#newtextvalue").val()));
+        $("#new" + type + "value").val("");
+      } else {
+        if (spacing) {
+          value = madlibs.smartSpaces(value);
+        }
+        $("#elements i").remove();
+        elements.push(JSON.parse("{\"type\": \"" + type + "\", \"value\": \"" + value + "\"}"));
+        $("#elements").append($("<div></div>").attr("data-id", (elements.length - 1)).attr("class", "view-item").text(type + ": " + value));
+        $("#newtextvalue").val("");
+      }
+      $("[data-id=" + (elements.length - 1) + "]").dblclick(() => {
+        $("#editvalue").val(elements[elements.length - 1].value);
+        $("#newinput").dialog("close");
+        $("#build").dialog("close");
+        $("#newtext").dialog("close");
+        $("#" + elements[(elements.length - 1)].type).attr("selected", true);
+        $("#" + elements[(elements.length - 1)].type).siblings().attr("selected", false);
+        $("#edit").data("id", (elements.length - 1)).dialog("open");
+      });
+    },
+    'deleteElement': (id) => {
+      elements.splice(id, 1);
+      $("[data-id=" + id + "]").remove();
+      for (var o = 0; o < elements.length; o++) {
+        $($("#elements").children().get(o)).attr("data-id", o);
+      }
+    },
+    'editElement': (id) => {
+      if (!/\S/.test($("#editvalue").val())) {
+        madlibs.deleteElement(id);
+      } else {
+        elements[id].type = $("#type").val();
+        elements[id].value = $("#editvalue").val();
+        if ($("#type").val() == "text") {
+          $("#editvalue").val(madlibs.smartSpaces($("#editvalue").val(), id));
+        } else if ($("#type").val() == "input") {
+          if (elements[id].value.startsWith(" ")) {
+            elements[id].value = elements[id].value.slice(1, elements[id].value.length);
+          }
+          if (elements[id].value.endsWith(" ")) {
+            elements[id].value = elements[id].value.slice(0, elements[id].value.length - 1);
+          }
+        }
+        $("[data-id=" + id + "]").html(elements[id].type + ": " + $("#editvalue").val());
+        $("#editvalue").val("");
+      }
+    },
 
-$("#smartspaces").click(() => {
-  $("#smartspacestate").click();
-  if ($("#smartspacestate").prop("checked")) {
-    $("#smartspaces").html("<i class=\"ui-icon ui-icon-check\"></i> Smart Spaces");
-  } else {
-    $("#smartspaces").html("<i class=\"ui-icon ui-icon-closethick\"></i> Smart Spaces");
-  }
-});
-$("#addinput").click(() => {
-  $("#newinput").dialog("open");
-  $("#build").dialog("close");
-  $("#newtext").dialog("close");
-});
-$("#addtext").click(() => {
-  $("#newinput").dialog("close");
-  $("#build").dialog("close");
-  $("#newtext").dialog("open");
-});
-$("#download").click(() => {
-  if (elements.length <= 1) return;
-  $("#build").dialog("open");
-  $("#newinput").dialog("close");
-  $("#newtext").dialog("close");
-});
-$("#newinputvalue").autocomplete({
-  source: inputTypes
-});
+    'cleanStr': (str) => {
+      return str
+        .replace(/&/, "&amp;")
+        .replace(/>/g, "&gt;")
+        .replace(/</g, "&lt;")
+        .replace(/'/g, "&apos;")
+        .replace(/\\/g, "\\\\")
+        .replace(/\"/g, "&quot;");
+    },
+    'buildProject': (title, download) => {
+      $.ajax({
+        url: "template.html",
+        dataType: "html",
+        success: (data) => {
+          var output = data,
+            items = "";
+          for (var o = 0; o < elements.length; o++) {
+            if (elements[o].type === "input") {
+              items += "<input type=\"text\" placeholder=\"" + elements[o].value + "\">";
+            } else if (elements[o].type === "text") {
+              items += "<input type=\"hidden\" value=\"" + elements[o].value + "\">";
+            }
+          }
+          output = output.replace("INPUTS GO HERE", items);
+          output = output.replace(/TITLE GOES HERE/g, title);
+          if (download) {
+            var a = $("<a></a>");
+            a.text("download");
+            a.attr("href", "data:text/html;base64," + Base64.encode(output));
+            a.attr("download", "Madlibs.html");
+            a.attr("id", "downloadFile");
+            $("body").append(a);
+            document.getElementById("downloadFile").click();
+            $("#downloadFile").remove();
+          } else {
+            window.open("preview#data:text/html;base64," + Base64.encode(output));
+          }
+        },
+        error: (xhr, status, error) => {
+          $("<div></div>").text("An error has occurred. Are You connected to the internet?").dialog({
+            title: "Error",
+            autoOpen: false,
+            width: 400,
+            buttons: [{
+              text: "Close",
+              click: function() {
+                $(this).dialog("close");
+              }
+            }]
+          }).dialog("open");
+        }
+      });
+    },
+
+    'smartSpaces': (str, e) => {
+      if (!$("#smartspacestate").prop("checked")) return madlibs.cleanStr(str);
+      var punctuation = ["-", "/", "_", "&", " "];
+      for (i in punctuation) {
+        if (!str.endsWith(punctuation[i])) {
+          punctEndCount++;
+        }
+        if (!str.startsWith(punctuation[i])) {
+          punctStartCount++;
+        }
+      }
+      if (punctStartCount === punctuation.length && elements.length && e != 0) {
+        str = " " + str;
+      }
+      if (punctEndCount === punctuation.length) {
+        str += " ";
+      }
+      punctStartCount = 0;
+      punctEndCount = 0;
+      return madlibs.cleanStr(str);
+    }
+  };
+
+
+
+  $("#smartspaces").click(() => {
+    $("#smartspacestate").click();
+    if ($("#smartspacestate").prop("checked")) {
+      $("#smartspaces").html("<i class=\"ui-icon ui-icon-check\"></i> Smart Spaces");
+    } else {
+      $("#smartspaces").html("<i class=\"ui-icon ui-icon-closethick\"></i> Smart Spaces");
+    }
+  });
+  $("#addinput").click(() => {
+    $("#newinput").dialog("open");
+    $("#build").dialog("close");
+    $("#newtext").dialog("close");
+  });
+  $("#addtext").click(() => {
+    $("#newinput").dialog("close");
+    $("#build").dialog("close");
+    $("#newtext").dialog("open");
+  });
+  $("#download").click(() => {
+    if (elements.length <= 1) return;
+    $("#build").dialog("open");
+    $("#newinput").dialog("close");
+    $("#newtext").dialog("close");
+  });
+  $("#newinputvalue").autocomplete({
+    source: inputTypes
+  });
+  // $("#newinputvalue").on("keydown", (event) => {
+  //   if(event.key == "Enter"){
+  //     $("#newinput").dialog('option', 'buttons')[0].click.apply($("#newinput"));
+  //     $("#newinput").dialog(opt).dialog("close");
+  //   }});
+  //   $("#newtextvalue").on("keydown", (event) => {
+  //     if(event.key == "Enter"){
+  //       $("#newtext").dialog('option', 'buttons')[0].click.apply($("#newtext"));
+  //       $("#newtext").dialog(opt).dialog("close");
+  //     }});
 $("#newinput").dialog({
   dialogClass: "no-close",
   title: "New Input",
@@ -46,15 +278,8 @@ $("#newinput").dialog({
   buttons: [{
       text: "Ok",
       click: function() {
-        if (!/\S/.test($("#newinputvalue").val())) {
-          $(this).dialog("close");
-          return;
-        }
-        elements.push(JSON.parse("{\"type\": \"input\", \"value\": \"" + cleanStr($("#newinputvalue").val()) + "\"}"));
-        $("#elements").append($("<div></div>").attr("class", "view-item").attr("data-id", (elements.length - 1)).append($("<div></div>").attr("class", "view-content").text("Input: " + $("#newinputvalue").val())));
-        $("#newinputvalue").val("");
+        madlibs.createElement($("#newinputvalue").val(), "input", false);
         $(this).dialog("close");
-        resetClicks();
       }
     },
     {
@@ -67,9 +292,6 @@ $("#newinput").dialog({
   ]
 });
 
-function cleanStr(str) {
-  return str.replace(/&/, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/'/g, "&apos;").replace(/\\/g, "\\\\").replace(/\"/g, "&quot;");
-}
 
 $("#newtext").dialog({
   dialogClass: "no-close",
@@ -79,15 +301,8 @@ $("#newtext").dialog({
   buttons: [{
       text: "Ok",
       click: function() {
-        if (!/\S/.test($("#newtextvalue").val())) {
-          $(this).dialog("close");
-          return;
-        }
-        elements.push(JSON.parse("{\"type\": \"text\", \"value\": \"" + smartSpaces($("#newtextvalue").val()) + "\"}"));
-        $("#elements").append($("<div></div>").attr("class", "view-item").attr("data-id", (elements.length - 1)).append($("<div></div>").attr("class", "view-content").text("Text: " + $("#newtextvalue").val())));
-        $("#newtextvalue").val("");
+        madlibs.createElement($("#newtextvalue").val(), "text", true);
         $(this).dialog("close");
-        resetClicks();
       }
     },
     {
@@ -109,7 +324,7 @@ $("#build").dialog({
       html: "<span class=\"ui-icon ui-icon-newwin\"></span> Preview",
       click: function() {
         if (!/\S/.test($("#buildtitlevalue").val())) return;
-        build($("#buildtitlevalue").val(), false);
+        madlibs.buildProject($("#buildtitlevalue").val(), false);
         $(this).dialog("close");
       }
     },
@@ -117,7 +332,7 @@ $("#build").dialog({
       html: "<span class=\"ui-icon ui-icon-arrowthickstop-1-s\"></span> Download",
       click: function() {
         if (!/\S/.test($("#buildtitlevalue").val())) return;
-        build($("#buildtitlevalue").val(), true);
+        madlibs.buildProject($("#buildtitlevalue").val(), true);
         $(this).dialog("close");
       }
     },
@@ -139,23 +354,13 @@ $("#edit").dialog({
   buttons: [{
     text: "Save Changes",
     click: function() {
-      if (!/\S/.test($("#editvalue").val())) {
-        elements = elements.splice($(this).data("id"), $(this).data("id"));
-        $("[data-id=" + $(this).data("id") + "]").remove();
-        $(this).dialog("close");
-      } else {
-        elements[$(this).data("id")].value = smartSpaces($("#editvalue").val());
-        elements[$(this).data("id")].type = $("#type").val();
-        $("[data-id=" + $(this).data("id") + "] .view-content").html(elements[$(this).data("id")].type + ": " + $("#editvalue").val());
-        $("#editvalue").val("")
-        $(this).dialog("close");
-      }
+      madlibs.editElement($(this).data("id"));
+      $(this).dialog("close");
     }
   }, {
     text: "Delete Item",
     click: function() {
-      elements = elements.splice($(this).data("id"), $(this).data("id"));
-      $("[data-id=" + $(this).data("id") + "]").remove();
+      madlibs.deleteElement($(this).data("id"));
       $(this).dialog("close");
     }
   }, {
@@ -167,161 +372,6 @@ $("#edit").dialog({
   }]
 });
 
-function resetClicks() {
-  $("#elements i").remove();
-  $(".view-content").off("dblclick");
-  $(".view-content").dblclick((e) => {
-    $("#editvalue").val(elements[$(e.target).parent().attr("data-id")].value);
-    $("#newinput").dialog("close");
-    $("#build").dialog("close");
-    $("#newtext").dialog("close");
-    $("#" + elements[$(e.target).parent().attr("data-id")].type).attr("selected", true);
-    $("#" + elements[$(e.target).parent().attr("data-id")].type).siblings().attr("selected", false);
-    $("#edit").data("id", $(e.target).parent().attr("data-id")).dialog("open");
-  });
-}
-
-//encode to base64 for download
-// https://scotch.io/tutorials/how-to-encode-and-decode-strings-with-base64-in-javascript#toc-cross-browser-method-compressed-
-var Base64 = {
-  _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-  encode: function(e) {
-    var t = "";
-    var n, r, i, s, o, u, a;
-    var f = 0;
-    e = Base64._utf8_encode(e);
-    while (f < e.length) {
-      n = e.charCodeAt(f++);
-      r = e.charCodeAt(f++);
-      i = e.charCodeAt(f++);
-      s = n >> 2;
-      o = (n & 3) << 4 | r >> 4;
-      u = (r & 15) << 2 | i >> 6;
-      a = i & 63;
-      if (isNaN(r)) {
-        u = a = 64
-      } else if (isNaN(i)) {
-        a = 64
-      }
-      t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a)
-    }
-    return t
-  },
-  decode: function(e) {
-    var t = "";
-    var n, r, i;
-    var s, o, u, a;
-    var f = 0;
-    e = e.replace(TEST, "");
-    while (f < e.length) {
-      s = this._keyStr.indexOf(e.charAt(f++));
-      o = this._keyStr.indexOf(e.charAt(f++));
-      u = this._keyStr.indexOf(e.charAt(f++));
-      a = this._keyStr.indexOf(e.charAt(f++));
-      n = s << 2 | o >> 4;
-      r = (o & 15) << 4 | u >> 2;
-      i = (u & 3) << 6 | a;
-      t = t + String.fromCharCode(n);
-      if (u != 64) {
-        t = t + String.fromCharCode(r)
-      }
-      if (a != 64) {
-        t = t + String.fromCharCode(i)
-      }
-    }
-    t = Base64._utf8_decode(t);
-    return t
-  },
-  _utf8_encode: function(e) {
-    e = e.replace(/\r\n/g, "n");
-    var t = "";
-    for (var n = 0; n < e.length; n++) {
-      var r = e.charCodeAt(n);
-      if (r < 128) {
-        t += String.fromCharCode(r)
-      } else if (r > 127 && r < 2048) {
-        t += String.fromCharCode(r >> 6 | 192);
-        t += String.fromCharCode(r & 63 | 128)
-      } else {
-        t += String.fromCharCode(r >> 12 | 224);
-        t += String.fromCharCode(r >> 6 & 63 | 128);
-        t += String.fromCharCode(r & 63 | 128)
-      }
-    }
-    return t
-  },
-  _utf8_decode: function(e) {
-    var t = "";
-    var n = 0;
-    var r = c1 = c2 = 0;
-    while (n < e.length) {
-      r = e.charCodeAt(n);
-      if (r < 128) {
-        t += String.fromCharCode(r);
-        n++
-      } else if (r > 191 && r < 224) {
-        c2 = e.charCodeAt(n + 1);
-        t += String.fromCharCode((r & 31) << 6 | c2 & 63);
-        n += 2
-      } else {
-        c2 = e.charCodeAt(n + 1);
-        c3 = e.charCodeAt(n + 2);
-        t += String.fromCharCode((r & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
-        n += 3
-      }
-    }
-    return t
-  }
-}
-
-
-//Build the .html file with the user input
-function build(title, download) {
-  $.ajax({
-    url: "template.html",
-    dataType: "html",
-    success: (data) => {
-      var output = data,
-        items = "";
-      for (var o = 0; o < elements.length; o++) {
-        if (elements[o].type == "input") {
-          items += "<input type=\"text\" placeholder=\"" + elements[o].value + "\">";
-        } else if (elements[o].type == "text") {
-          items += "<input type=\"hidden\" value=\"" + elements[o].value + "\">";
-        }
-      }
-      output = output.replace("INPUTS GO HERE", items);
-      output = output.replace(/TITLE GOES HERE/g, title);
-      if (download) {
-        var a = $("<a></a>");
-        a.text("download");
-        a.attr("href", "data:text/html;base64," + Base64.encode(output));
-        a.attr("download", "Madlibs.html");
-        a.attr("id", "downloadFile");
-        $("body").append(a);
-        document.getElementById("downloadFile").click();
-        $("#downloadFile").remove();
-      } else {
-        window.open("preview.html#data:text/html;base64," + Base64.encode(output));
-      }
-    },
-    error: (xhr, status, error) => {
-      $("<div></div>").text("An error has occurred. Are You connected to the internet?").dialog({
-        title: "Error",
-        autoOpen: false,
-        width: 400,
-        buttons: [{
-          text: "Close",
-          click: function() {
-            $(this).dialog("close");
-          }
-        }]
-      }).dialog("open");
-    }
-  });
-}
-
-
 const mobileCheck = function() {
   let check = false;
   (function(a) {
@@ -332,26 +382,4 @@ const mobileCheck = function() {
 
 if (mobileCheck()) {
   $("#tapclick").text("(Double-Tap Items To Modify)");
-}
-
-function smartSpaces(str) {
-  if (!$("#smartspacestate").prop("checked")) return cleanStr(str);
-  var punctuation = ["-", "/", "_", "&"];
-  for (i in punctuation) {
-    if (!str.endsWith(punctuation[i])) {
-      punctEndCount++;
-    }
-    if (!str.startsWith(punctuation[i])) {
-      punctStartCount++;
-    }
-  }
-  if (punctStartCount === punctuation.length && elements.length) {
-    str = " " + str;
-  }
-  if (punctEndCount === punctuation.length) {
-    str += " ";
-  }
-  punctStartCount = 0;
-  punctEndCount = 0;
-  return cleanStr(str);
 }
