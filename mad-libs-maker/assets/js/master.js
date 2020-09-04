@@ -140,7 +140,7 @@ let elements = [],
         elements[id].type = $("#type").val();
         elements[id].value = $("#editvalue").val();
         if ($("#type").val() == "text") {
-          $("#editvalue").val(madlibs.smartSpaces($("#editvalue").val(), id));
+          elements[id].value = madlibs.smartSpaces($("#editvalue").val(), id);
         } else if ($("#type").val() == "input") {
           if (elements[id].value.startsWith(" ")) {
             elements[id].value = elements[id].value.slice(1, elements[id].value.length);
