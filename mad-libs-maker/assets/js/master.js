@@ -201,7 +201,7 @@ let elements = [],
               }
             }
           } else if (type == "share") {
-            fetch("https://wildware.000webhostapp.com/no-cors.php?url=https%3A%2F%2Ftinyurl.com%2Fapi-create.php%3Furl%3D" + encodeURI("https://hman124.github.io/mad-libs-maker/preview?data:text/html;base64," + Base64.encode(output)))
+            fetch("https://wildware.000webhostapp.com/no-cors-tiny.php?url=" + "https://hman124.github.io/mad-libs-maker/preview?data:text/html;base64," + Base64.encode(output))
               .then(response => response.text())
               .then(data => {
                 $("<div></div>").html("<p id=\"url\">Link: <a href=\"" + data + "\">" + data + "</a></p><br><input id=\"copy\" type=\"button\" value=\"Copy\">").dialog({
