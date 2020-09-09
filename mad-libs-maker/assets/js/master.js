@@ -117,7 +117,7 @@ let elements = [],
       }
 
       $("[data-id=" + (elements.length - 1) + "]").dblclick((e) => {
-        $("#editvalue").val(elements[$(e.target).attr("data-id")].value);
+        $("#editvalue").val(madlibs.unCleanStr(elements[$(e.target).attr("data-id")].value));
         $("#newinput").dialog("close");
         $("#build").dialog("close");
         $("#newtext").dialog("close");
@@ -164,6 +164,15 @@ let elements = [],
         .replace(/\\/g, "\\\\")
         .replace(/\"/g, "&quot;");
     },
+	'unCleanStr': (str) => {
+		return str
+        .replace(/&amp;/, "&")
+        .replace(/&gt;/g, ">")
+        .replace(/&lt;/g, "<")
+        .replace(/&apos;/g, "'")
+        .replace(/\\\\/g, "\\")
+        .replace(/&quot;/g, "\"");
+	},
     'buildProject': (title, type) => {
       $.ajax({
         url: "template.html",
@@ -235,7 +244,6 @@ let elements = [],
     },
 
     'smartSpaces': (str, e) => {
-      if (!$("#smartspacestate").prop("checked")) return madlibs.cleanStr(str);
       var punctuation = ["-", "/", "_", "&", " "];
       for (i in punctuation) {
         if (!str.endsWith(punctuation[i])) {
@@ -364,16 +372,9 @@ $("#build").dialog({
   dialogClass: "no-close",
   title: "Finalize This Project",
   autoOpen: false,
-  width: 470,
-  height: 170,
+  width: 400,
   modal: true,
-  buttons: [{
-      html: "<i class=\"ui-icon ui-icon-mail-closed\"></i> Share",
-      click: function() {
-        madlibs.buildProject($("#buildtitlevalue").val(), "share");
-        $(this).dialog("close");
-      }
-    },
+  buttons: [
     {
       html: "<span class=\"ui-icon ui-icon-newwin\"></span> Preview",
       click: function() {
