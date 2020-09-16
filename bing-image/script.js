@@ -46,7 +46,7 @@ function getContents(e) {
   }
   imgIndex = e;
 loading.show();
- fetch("https://wildware.000webhostapp.com/no-cors-bing?back=" + e)
+ fetch("https://cors-anywhere.herokuapp.com/https://www.bing.com/HPImageArchive.aspx?format=js&n=1&mkt=en-US&idx=" + e, {headers:{"X-Requested-With":"hman124"}})
     .then(response => {
       if (!response.ok) {
         throw Error(response.statusText);
