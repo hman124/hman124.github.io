@@ -1,5 +1,3 @@
-# hman124.github.io
-
 The Home Of All My Projects
 
 My Projects:
